@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>功能测试</title>
+    <url>/2020/02/25/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>在网站投入正式使用之前，我们还需要进行一些功能测试。</p>
+<hr>
+<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>这是一个代码区块。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">11</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>这是一个表格。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">表头1</th>
+<th style="text-align:center">表头2</th>
+<th style="text-align:right">表头3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">单元格</td>
+<td style="text-align:center">单元格</td>
+<td style="text-align:right">单元格</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注意：若要在表格中使用<code>|</code>，请输入<code>&amp;#124;</code>。</p>
+<hr>
+<h1 id="网易云音乐播放器"><a href="#网易云音乐播放器" class="headerlink" title="网易云音乐播放器"></a>网易云音乐播放器</h1><p>这是网易云音乐播放器。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1396840772&auto=0&height=66"></iframe>
+
+<p>注意：若需要自动播放，修改<code>scr</code>下<code>auto</code>中的<code>0</code>为<code>1</code>.</p>
+<hr>
+<h1 id="哔哩哔哩播放器"><a href="#哔哩哔哩播放器" class="headerlink" title="哔哩哔哩播放器"></a>哔哩哔哩播放器</h1><p>这是哔哩哔哩播放器。</p>
+<iframe src="//player.bilibili.com/player.html?aid=32298034&cid=56506950&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<hr>
+<h1 id="LATEX数学公式"><a href="#LATEX数学公式" class="headerlink" title="LATEX数学公式"></a>LATEX数学公式</h1><p>这是两个个LATEX数学公式。<br>傅里叶级数：</p>
+<script type="math/tex; mode=display">f\left(x\right)=a_0+\sum_{n=1}^{\infty}\left(a_n\cos{\frac{n\pi x}{L}}+b_n\sin{\frac{n\pi x}{L}}\right)</script><p>泰勒展开式：</p>
+<script type="math/tex; mode=display">e^x=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+\ldots,\ \ -\infty<x<\infty</script><hr>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><p>这是一个区块。</p>
+<blockquote>
+<p>区块1</p>
+</blockquote>
+<hr>
+<h1 id="粗体、斜体、删除线与下划线"><a href="#粗体、斜体、删除线与下划线" class="headerlink" title="粗体、斜体、删除线与下划线"></a>粗体、斜体、删除线与下划线</h1><p>下面是文字样式测试。<br><strong>粗体</strong><br><em>斜体</em><br><strong><em>粗斜体</em></strong><br><del>删除线</del><br><u>下划线</u></p>
+<hr>
+<p>至此，网站功能测试基本完成。</p>
+]]></content>
+      <categories>
+        <category>导航</category>
+      </categories>
+      <tags>
+        <tag>-功能测试 -导航</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>欢迎</title>
     <url>/2020/02/24/%E6%AC%A2%E8%BF%8E/</url>
     <content><![CDATA[<h1 id="欢迎！"><a href="#欢迎！" class="headerlink" title="欢迎！"></a>欢迎！</h1><p>感谢您的关注！<br>本网站还在施工当中，这会需要一些时间。<br>不久之后，我们会再见面的！</p>
