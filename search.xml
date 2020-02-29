@@ -1,71 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>功能测试</title>
-    <url>/2020/02/25/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>在网站投入正式使用之前，我们还需要进行一些功能测试。</p>
+    <title>找寻一片净土</title>
+    <url>/2020/02/29/%E6%89%BE%E5%AF%BB%E4%B8%80%E7%89%87%E5%87%80%E5%9C%9F/</url>
+    <content><![CDATA[<p>找寻一片不被打扰的，属于自己的净土。<br><a id="more"></a></p>
 <hr>
-<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>这是一个代码区块。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">11</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
+<h1 id="关于我为什么要建立博客"><a href="#关于我为什么要建立博客" class="headerlink" title="关于我为什么要建立博客"></a>关于我为什么要建立博客</h1><p>&emsp;&emsp;在这样一个无时无刻都在被过量信息冲击的时代，真的很难找到一片能让我把自己的所思所想落到笔头上的地方。一次在查询算法资料的时候，我偶然进入了一位程序员的博客，在找到了我想要找的东西之后，我又看了看他写的其他文章。就一般而言，程序员的博客大部分都会更新许多技术相关的文章，而对生活上的、思想上的分享相对较少。我发现他就不是这样的，他写的技术文章和生活、思想、艺术上的分享大致各占一半。我因此喜欢上了博客这样的分享形式。就一方面而言，它可以让我沉下心来把我的所思所想、学习心得、生活点滴和科学技术上的分享以较为长篇的方式更新在博客上；另一方面，如果我能够坚持更新的话，在未来的某一天，看着我过去所写的博文，或许也会有一些成就感吧。总之，能不被其他社交媒体所打扰，建立一片属于我自己的天地，是我建立这个博客的真正目的。</p>
 <hr>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>这是一个表格。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">表头1</th>
-<th style="text-align:center">表头2</th>
-<th style="text-align:right">表头3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">单元格</td>
-<td style="text-align:center">单元格</td>
-<td style="text-align:right">单元格</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>注意：若要在表格中使用<code>|</code>，请输入<code>&amp;#124;</code>。</p>
+<h1 id="关于博文的内容"><a href="#关于博文的内容" class="headerlink" title="关于博文的内容"></a>关于博文的内容</h1><p>&emsp;&emsp;就像我上面所说的，接下来博文的内容主要会和我所感兴趣的一些话题、技术、生活、我所学的专业，以及我的所思所想。这主要是替代我在其他社交平台发布的零零散散的内容，我会进一步加深对这些话题、技术等内容的思考，并把这些思考的内容转化为文字。虽然这比较考验我的写作能力，但我觉得通过这种形式，能让我更深入地了解，更深入地思考，而不是浮于表面，草草了事。</p>
 <hr>
-<h1 id="网易云音乐播放器"><a href="#网易云音乐播放器" class="headerlink" title="网易云音乐播放器"></a>网易云音乐播放器</h1><p>这是网易云音乐播放器。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1396840772&auto=0&height=66"></iframe>
-
-<p>注意：若需要自动播放，修改<code>scr</code>下<code>auto</code>中的<code>0</code>为<code>1</code>.</p>
+<h1 id="关于“裂变中子”"><a href="#关于“裂变中子”" class="headerlink" title="关于“裂变中子”"></a>关于“裂变中子”</h1><p>&emsp;&emsp;裂变中子，也就是核裂变时所发生出来的中子。当一颗中子轰击了重核后，重核会分裂成两个和多个原子核，当然也包括中子。这些中子会继续轰击附近的重核，继续引发裂变，这也就是链式反应。我们每个人都是裂变中子，我们都是链式反应中的一环。我们所做的每一件事，都会成为下一件事的起因。</p>
 <hr>
-<h1 id="哔哩哔哩播放器"><a href="#哔哩哔哩播放器" class="headerlink" title="哔哩哔哩播放器"></a>哔哩哔哩播放器</h1><p>这是哔哩哔哩播放器。</p>
-<iframe src="//player.bilibili.com/player.html?aid=32298034&cid=56506950&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+<h1 id="关于博客网站的建设"><a href="#关于博客网站的建设" class="headerlink" title="关于博客网站的建设"></a>关于博客网站的建设</h1><p>&emsp;&emsp;就目前而言，网站的基本功能都已经完成了。由于我的博客受众群都是面向认识我的朋友，访客量也并不大，再加上考虑到数据安全方面的问题，评论功能暂且不会加入。如果想要和我交流的，可以在其他社交平台和我交流。当然，我也在网站中加入了RSS功能，你可以通过订阅我的RSS来及时获取我更新的博文。对于未来是否还会在博客网站上增加功能，我还没有具体的打算，如果有需要，看情况再添加吧。</p>
 <hr>
-<h1 id="LATEX数学公式"><a href="#LATEX数学公式" class="headerlink" title="LATEX数学公式"></a>LATEX数学公式</h1><p>这是两个个LATEX数学公式。<br>傅里叶级数：</p>
-<script type="math/tex; mode=display">f\left(x\right)=a_0+\sum_{n=1}^{\infty}\left(a_n\cos{\frac{n\pi x}{L}}+b_n\sin{\frac{n\pi x}{L}}\right)</script><p>泰勒展开式：</p>
-<script type="math/tex; mode=display">e^x=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+\ldots,\ \ -\infty<x<\infty</script><hr>
-<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><p>这是一个区块。</p>
-<blockquote>
-<p>区块1</p>
-</blockquote>
+<p>或许博客才是过量信息冲击后的一片净土吧。</p>
 <hr>
-<h1 id="粗体、斜体、删除线与下划线"><a href="#粗体、斜体、删除线与下划线" class="headerlink" title="粗体、斜体、删除线与下划线"></a>粗体、斜体、删除线与下划线</h1><p>下面是文字样式测试。<br><strong>粗体</strong><br><em>斜体</em><br><strong><em>粗斜体</em></strong><br><del>删除线</del><br><u>下划线</u></p>
-<hr>
-<p>至此，网站功能测试基本完成。</p>
 ]]></content>
       <categories>
-        <category>导航</category>
+        <category>深思</category>
       </categories>
-      <tags>
-        <tag>-功能测试 -导航</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎</title>
-    <url>/2020/02/24/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎！"><a href="#欢迎！" class="headerlink" title="欢迎！"></a>欢迎！</h1><p>感谢您的关注！<br>本网站还在施工当中，这会需要一些时间。<br>不久之后，我们会再见面的！</p>
-]]></content>
-      <categories>
-        <category>导航</category>
-      </categories>
-      <tags>
-        <tag>-导航</tag>
-      </tags>
   </entry>
 </search>
