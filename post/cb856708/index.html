@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发'><title>核磁共振的基本原理</title>
+
+<link rel='canonical' href='https://linkvesta.top/post/cb856708/'>
+
+<link rel="stylesheet" href="/scss/style.min.873c62cd62b354e610df4d1832ff4ecfcb1d111919d779ae324ee0fbd51d37fd.css"><meta property='og:title' content='核磁共振的基本原理'>
+<meta property='og:description' content='核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发'>
+<meta property='og:url' content='https://linkvesta.top/post/cb856708/'>
+<meta property='og:site_name' content='FissionNeutron的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='原理' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2022-08-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-15T04:10:32&#43;08:00'/><meta property='og:image' content='https://linkvesta.top/post/cb856708/img/cover.png' />
+<meta name="twitter:title" content="核磁共振的基本原理">
+<meta name="twitter:description" content="核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linkvesta.top/post/cb856708/img/cover.png' /><style>
+    :root {
+        --article-font-family: "Noto Serif", "Noto Serif SC", var(--base-font-family);
+    }
+</style>
+
+<script>
+		(function () {
+		    const customFont = document.createElement('link');
+		    customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Mono&display=swap";
+		
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+
+        
+		
+		
+		
+		
+		
+		
+		
+		
+
+</script>
+
+<style>
+	.bibl {
+		padding: 0 2.5em;
+	}
+	.bibl>span {
+		display: block;
+		text-indent: -2.5em;
+	}
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu11f720e8b7606021d7f7e00fc203c204_20771_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📖</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">FissionNeutron</a></h1>
+            <h2 class="site-description">个人博客</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:admin@linkvesta.top'
+                        target="_blank"
+                        title="Email"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/FissionNeutron'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li  class='current' >
+            <a href='/post/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+  <line x1="9" y1="9" x2="10" y2="9" />
+  <line x1="9" y1="13" x2="15" y2="13" />
+  <line x1="9" y1="17" x2="15" y2="17" />
+</svg>
+
+
+
+                
+                <span>博文</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>深色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article" style="text-align:justify; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/cb856708/">
+                <img src="/post/cb856708/img/cover.png"
+                        
+                        width="1280" 
+                        height="720" 
+                        loading="lazy"
+                        alt="Featured image of post 核磁共振的基本原理" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/physics/" style="background-color: #2a9d8f; color: #fff;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/cb856708/">核磁共振的基本原理</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 14, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发后的物质发现了核磁共振现象，并因此于 1944 年获得了诺贝尔物理学奖。时至今日，核磁共振已经成为了医学、化学、生物学等多个学科不可或缺的研究手段。</p>
+<h2 id="预备知识">预备知识</h2>
+<p>在学习核磁共振的基本原理之前，应首先了解本节内容。</p>
+<h3 id="原子核的自旋">原子核的自旋</h3>
+<p>组成任何原子核的所有核子都具有自旋的量子特性。原子核的自旋角动量的大小 $S$ 可以由自旋量子数 $s$ 表示：</p>
+<p>$$S = \hbar \sqrt{s(s+1)}$$</p>
+<p>如果某个原子核中的质子和中子的数量都是偶数，那么自旋量子数 $s=0$；如果某个原子核质量数为奇数，那么自旋量子数 $s$ 取半整数；如果某个原子核质量数为偶数，并且质子数为奇数，那么自旋量子数 $s$ 取整数。与沿 $z$ 轴或外加磁场方向，且与自旋分量相关的整数或半整数量子数被称为磁量子数 $m$。磁量子数 $m$ 可以以整数为步长在 $-s$ 到 $+s$ 内取值。因此，对于任何给定的原子核，总共有 $2s + 1$ 个自旋状态（磁量子数）。自旋角动量 $\boldsymbol{S}$ 在 $z$ 方向的分量为：</p>
+<p>$$S_z = m\hbar$$</p>
+<h3 id="原子核的自旋磁矩">原子核的自旋磁矩</h3>
+<p>自旋角动量 $\boldsymbol{S}$ 不为零的原子核具有相应的核自旋磁矩 $\boldsymbol{\mu}$，简称为核磁矩。核磁矩的表达式为：</p>
+<span id= "vecmu">
+$$\boldsymbol{\mu} = \frac{g\mu_\mathrm{N}}{\hbar} \boldsymbol{S} \tag{1}$$
+</span>
+<p>其中，$g$ 为朗德因子，是一个无量纲的量，其数值取决于原子核的结构，它的值可能为正，也可能为负；$\mu_\mathrm{N}$ 为核磁子，在国际单位制下它的定义式为：</p>
+<p>$$\mu_\mathrm{N} = \frac{e\hbar}{2m_\mathrm{p}}$$</p>
+<p>式中，$e$ 为元电荷，$m_\mathrm{p}$ 为质子的静止质量。核自旋磁矩与自旋角动量的比值称为旋磁比 $\gamma$，其表达式为：</p>
+<p>$$\gamma = \frac{g\mu_\mathrm{N}}{\hbar}$$</p>
+<p>因此，<a class="link" href="#vecmu" >式 (1)</a> 可改写为：</p>
+<p>$$\boldsymbol{\mu} = \gamma \boldsymbol{S}$$</p>
+<p>核自旋磁矩 $\boldsymbol{\mu}$ 在 $z$ 方向的分量为：</p>
+<span id= "muz">
+$$\mu_z = \gamma S_z = \gamma m\hbar \tag{2}$$
+</span>
+<h3 id="能级分裂">能级分裂</h3>
+<p>原子核共有 $2s + 1$ 个自旋状态，对应 $2s + 1$ 个磁量子数。在没有磁场的情况下，这些态是简并的，具有相同的能量。在外加磁场的作用下，由于核自旋磁矩和外加磁场之间的相互作用，这些态不再拥有相同的能量，发生能级分裂。在外磁场 $\boldsymbol{B}_0$ 中，核自旋磁矩 $\boldsymbol{\mu}$ 的能量为：</p>
+<p>$$E=-\boldsymbol{\mu}\cdot\boldsymbol{B}_0 = -\mu_x B_{0x} -\mu_y B_{0y} -\mu_z B_{0z}$$</p>
+<p>通常令外磁场 $\boldsymbol{B}_0$ 平行于 $z$ 轴，上式可化简为：</p>
+<p>$$E = - \mu_{z}B_{0}$$</p>
+<p>将<a class="link" href="#muz" >式 (2)</a> 代入上式，得：</p>
+<p>$$E = - \gamma m \hbar B_{0}$$</p>
+<p>相邻能级之间的能量差为：</p>
+<p>$$\Delta E = \gamma \hbar B_{0}$$</p>
+<p>由此可见，外加磁场越大，相邻能级之间的能量差也越大。</p>
+<!--<span id= "fig1">-->
+<p><img src="/post/cb856708/img/split-e-level.png"
+	width="454"
+	height="320"
+	
+	loading="lazy"
+	
+		alt="图 1：在外加磁场中原子核（如氕核）自旋能量的分裂"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<!--</span>-->
+<p>对自旋量子数为 $\frac{1}{2}$ 的原子核，如 $^1\mathrm{H}$ 核，具有两个自旋状态 $m = \frac{1}{2}$ 和 $m = - \frac{1}{2}$。如果旋磁比 $\gamma &gt; 0$，态 $m = - \frac{1}{2}$ 的能量要大于态 $m = \frac{1}{2}$ 的能量。</p>
+<hr>
+<h2 id="核磁共振">核磁共振</h2>
+<p>将样品置于恒定的外磁场下，样品的原子核自旋产生的磁场会在外磁场的作用下重新排列，根据波尔兹曼的粒子数能级分布原理，大多数原子核自旋会处于低能级，即自旋方向顺着外加磁场的方向。此时，再施加额外的射频场（高频交变磁场），使得处于低能级的原子核自旋共振跃迁至高能级（即自旋方向逆着外加磁场的方向），再回到低能级并释放射频信号。这一过程会使外加射频场的能量发生变化，该变化的过程是可以检测的。这就是核磁共振的基本原理。</p>
+<h3 id="拉莫尔进动">拉莫尔进动</h3>
+<p>一个高速旋转的陀螺，当自转轴与重力方向不平行时，其自转轴会绕着重力方向缓慢旋转，这种现象被称为进动。同样的，将一个原子核置于恒定的外加磁场中，若原子核的自旋磁矩与外加磁场方向不同，则原子核磁矩会绕外磁场方向旋转发生进动，这一现象被称为拉莫尔进动。外加磁场 $\boldsymbol{B}_0$ 对核自旋磁矩 $\boldsymbol{\mu}$ 施加了一个力矩 $\boldsymbol{\tau}$：</p>
+<p>$$\boldsymbol{\tau} = \boldsymbol{\mu} \times \boldsymbol{B}_0 = \gamma \boldsymbol{S} \times \boldsymbol{B}_0$$</p>
+<p>力矩的作用也会影响自旋角动量，即：</p>
+<p>$$\boldsymbol{\tau} = \frac{\mathrm{d}\boldsymbol{S}}{\mathrm{d}t}$$</p>
+<p>由上两式可得核自旋磁矩在外加磁场作用下的运动方程：</p>
+<p>$$\frac{\mathrm{d}\boldsymbol{S}}{\mathrm{d}t} = \gamma \boldsymbol{S} \times \boldsymbol{B}_0 \stackrel{\boldsymbol{\mu} = \gamma \boldsymbol{S}}{\Longrightarrow}  \frac{\mathrm{d}\boldsymbol{\mu}}{\mathrm{d}t} = \gamma \boldsymbol{\mu} \times \boldsymbol{B}_0$$</p>
+<p>求解这个方程便可得到核自旋磁矩 $\boldsymbol{\mu}$（或自旋角动量 $\boldsymbol{S}$）绕着外磁场 $\boldsymbol{B}_0$ 的方向以一定角频率进动。该频率被称为拉莫尔频率 $\omega$：</p>
+<p>$$\omega_L = \gamma B_0$$</p>
+<p>将角频率转换为频率，有：</p>
+<p>$$ \nu_L = \frac{\omega_L}{2\uppi} = \frac{\gamma B_0}{2\uppi}$$</p>
+<p>拉莫尔频率由外加磁场的强度和原子核本身的性质决定。因此，对于某一特定原子，在一定强度的的外加磁场中，其原子核自旋进动的频率是固定不变的。</p>
+<h3 id="共振跃迁">共振跃迁</h3>
+<p>对原子核在$z$方向上施加恒定外磁场 $\boldsymbol{B}_0$，再添加一个方向与 $\boldsymbol{B}_0$ 垂直的射频场（高频交变磁场）$\boldsymbol{B}_1$。当射频场的角频率 $\omega$ 等于拉莫尔频率 $\omega_L$ 时，射频场 $\boldsymbol{B}_1$ 对进动中的核自旋磁矩 $\boldsymbol{\mu}$ 的作用相当于恒定磁场，使得核自旋磁矩 $\boldsymbol{\mu}$ 绕着射频场 $\boldsymbol{B}_1$ 发生进动。此时，核自旋磁矩的能量状态发生改变，核自旋磁矩与射频场之间产生能量交换。当射频场的角频率 $\omega$ 不等于拉莫尔频率 $\omega_L$ 时，射频场 $\boldsymbol{B}_1$ 对进动中的核自旋磁矩 $\boldsymbol{\mu}$ 的作用不再相当于恒定磁场，核自旋磁矩 $\boldsymbol{\mu}$ 无法绕着射频场 $\boldsymbol{B}_1$ 发生进动，自旋磁矩的能量状态不发生改变，与射频场没有能量交换。根据磁偶极跃迁的选择定则 $\Delta m = \pm 1$，只有相邻能级间的跃迁才是允许的。根据玻尔频率定则，光子能量与相邻能级的能量差相等时，才会发生跃迁。在这里，当射频光子的能量等于相邻能级的能量差时，原子核发生共振跃迁。由此可知，核磁共振的条件为：</p>
+<p>$$\Delta E = \gamma \hbar B_{0} = \hbar \omega \Rightarrow \omega = \gamma B_{0} = \omega_L$$</p>
+<p>即射频场角频率等于拉莫尔频率时，才能引起共振跃迁。</p>
+<h3 id="共振信号">共振信号</h3>
+<p>在这里介绍两种能够使外加射频场能量状态变化的方法。需要注意的是，两种探测方法均为是连续法。连续法的频率分辨率低，而且不能测量驰豫时间，所以这种方法不太常用。另一种探测方法是脉冲法，这种方法分辨率高，可以测量驰豫时间，因此应用广泛。</p>
+<h4 id="扫频法">扫频法</h4>
+<p>固定磁场 $\boldsymbol{B}_0$，连续改变射频场 $\boldsymbol{B}_1$ 的频率。当射频场 $\boldsymbol{B}_1$ 的角频率 $\omega = \omega_L = \gamma B_{0}$ 时，发生共振跃迁，出现共振峰。</p>
+<h4 id="扫场法">扫场法</h4>
+<p>固定射频场 $\boldsymbol{B}_1$ 的频率，在共振磁场强度附近连续改变磁场 $\boldsymbol{B}_0$ 的场强（即连续改变相邻能级间的能量差），使扫磁场 $\boldsymbol{B}_0$ 过共振点。这种方法需要在平行于静磁场的方向上叠加一个较弱的交变磁场，该磁场被称为扫场。在连续改变磁场 $\boldsymbol{B}_0$ 的场强时，应缓慢地通过共振点。在这里，缓慢是相对于原子核的驰豫时间而言的。</p>
+<span id= "fig2">
+<p><img src="/post/cb856708/img/field-scan.png"
+	width="596"
+	height="379"
+	
+	loading="lazy"
+	
+		alt="图 2：扫场、静磁场与共振信号的关系"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="157"
+		data-flex-basis="377px"
+	
+></p>
+</span>
+<p><a class="link" href="#fig2" >图 2</a> 给出了扫场频率为 50 Hz 时，外磁场随时间的变化及相应的共振信号的关系。从图中可知道，磁场 $\boldsymbol{B}_0$ 的场强变化范围是 $B_0 = B \pm B^\prime $，相邻能级间的能量差也在相应地发生变化。改变射频频率 $\nu$，使 $\nu$ 对应的磁场强度 $B_1$ 在磁场 $\boldsymbol{B}_0$ 的场强变化范围内，就能发生共振。这时的共振信号的间隔可能是不等的，如果继续调整频率 $\nu$，使得共振信号等间距排列，此时扫场不参与共振，便可确定固定磁场 $\boldsymbol{B}_0$ 的场强。</p>
+<p><img src="/post/cb856708/img/relaxation.png"
+	width="878"
+	height="470"
+	
+	loading="lazy"
+	
+		alt="图 3：图 (a) 为短弛豫时间样品的共振信号；图 (b) 为长弛豫时间样品的共振信号"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
+	
+></p>
+<p>对水来说，50 Hz 的扫场频率是一个变化较快的磁场，观察到的不再是单纯的吸收信号，将会产生拖尾现象。磁场越均匀，尾波中振荡次数越多，拖尾现象越显著。相对而言，纯水的驰豫时间太长（约为 2 s），原子核都被抽运到高能级达到饱和，以至再次扫过共振点时，低能级不再有大量的原子核可以被抽运。因此，如果水样品非常纯，共振信号会很小，甚至看不到共振信号，这样就很难检测到能量的变化了。此时，可以在水中掺入一些离子，用来减少样品的驰豫时间，以得到较强的共振信号。</p>
+<hr>
+<h2 id="参考文献">参考文献</h2>
+<p>由于本文的笔记属性，对参考文献的引用较多，引用内容无法在文中一一标注，敬请谅解。本文内容主要来源于课堂教案与以下文献：</p>
+<p class="bibl">
+  <span>[1]&emsp;吴先求,熊予莹. 近代物理实验教程（第二版）[M].北京:科学出版社,2009.</span>
+  <span>[2]&emsp;杨福家. 原子物理学（第五版）[M].北京:高等教育出版社,2019.</span>
+</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%8E%9F%E7%90%86/">原理</a>
+        
+            <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Aug 15, 2022 04:10 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC&#43;j4OPoNhVgjdGFwhvN02Ja"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            macros: {
+                "\\upalpha":   "\\textup{α}",
+                "\\upbeta":    "\\textup{β}",
+                "\\upgamma":   "\\textup{γ}",
+                "\\updelta":   "\\textup{δ}",
+                "\\upepsilon": "\\textup{ϵ}",
+                "\\upzeta":    "\\textup{ζ}",
+                "\\upeta":     "\\textup{η}",
+                "\\uptheta":   "\\textup{θ}",
+                "\\upiota":    "\\textup{ι}",
+                "\\upkappa":   "\\textup{κ}",
+                "\\uplambda":  "\\textup{λ}",
+                "\\upmu":      "\\textup{μ}",
+                "\\upnu":      "\\textup{ν}",
+                "\\upxi":      "\\textup{ξ}",
+                "\\upomicron": "\\textup{ο}",
+                "\\uppi":      "\\textup{π}",
+                "\\uprho":     "\\textup{ρ}",
+                "\\upsigma":   "\\textup{σ}",
+                "\\uptau":     "\\textup{τ}",
+                "\\upupsilon": "\\textup{υ}",
+                "\\upphi":     "\\textup{φ}",
+                "\\upchi":     "\\textup{χ}",
+                "\\uppsi":     "\\textup{ψ}",
+                "\\upomega":   "\\textup{ω}",
+
+            },
+            trust: true,
+        });})
+</script>
+
+
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="FissionNeutron/FissionNeutron.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNDI0NzQxODI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDODnPcxs4CQrM_"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 FissionNeutron
+    </section>
+    
+    <section class="powerby">
+        
+            部署于<a href="https://pages.github.com/" target="_blank">GitHub Pages</a> <br/>
+        通过 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 框架生成 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#预备知识">预备知识</a>
+      <ol>
+        <li><a href="#原子核的自旋">原子核的自旋</a></li>
+        <li><a href="#原子核的自旋磁矩">原子核的自旋磁矩</a></li>
+        <li><a href="#能级分裂">能级分裂</a></li>
+      </ol>
+    </li>
+    <li><a href="#核磁共振">核磁共振</a>
+      <ol>
+        <li><a href="#拉莫尔进动">拉莫尔进动</a></li>
+        <li><a href="#共振跃迁">共振跃迁</a></li>
+        <li><a href="#共振信号">共振信号</a>
+          <ol>
+            <li><a href="#扫频法">扫频法</a></li>
+            <li><a href="#扫场法">扫场法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+    </body>
+</html>
