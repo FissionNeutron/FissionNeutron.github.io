@@ -6,13 +6,149 @@
         <description>Recent content in 笔记 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://linkvesta.top/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Aug 2022 22:13:50 +0800</lastBuildDate><atom:link href="https://linkvesta.top/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>四探针的基本原理</title>
+        <link>https://linkvesta.top/post/a54c5f4f/</link>
+        <pubDate>Tue, 30 Aug 2022 22:13:50 +0800</pubDate>
+        
+        <guid>https://linkvesta.top/post/a54c5f4f/</guid>
+        <description>&lt;img src="https://linkvesta.top/post/a54c5f4f/img/cover.png" alt="Featured image of post 四探针的基本原理" /&gt;&lt;p&gt;四探针测量技术，又称为开尔文测量法，是一种电阻抗测量技术，它使用单独的一对电流和电压探针，测量结果比更简单和更常见的两探针测量法更精确。四探针常被用于测量半导体薄膜的电阻率与方块电阻。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;测量方法&#34;&gt;测量方法&lt;/h2&gt;
+&lt;p&gt;如&lt;a class=&#34;link&#34; href=&#34;#fig1&#34; &gt;图 1&lt;/a&gt; 所示，四根等间距探针（1、2、3、4）竖直的排成一排，同时施加适当的压力使其与被测样品表面形成欧姆连接，用恒流源给两个外探针（1、4）通以小电流，精准电压表测量内侧两探针（2、3）间电压。根据测量方式和样品的尺寸不同，选取不同的公式计算样品的电阻、电阻率与方块电阻。&lt;/p&gt;
+&lt;span id= &#34;fig1&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://linkvesta.top/post/a54c5f4f/img/measure.png&#34;
+	width=&#34;610&#34;
+	height=&#34;296&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图 1：直线四探针法测量原理图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;494px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;大厚度半无穷大样品&#34;&gt;大厚度半无穷大样品&lt;/h2&gt;
+&lt;p&gt;电阻 $R$ 与电阻率 $\rho$ 间的关系为：&lt;/p&gt;
+&lt;p&gt;$$ R = \frac{\rho L}{S} $$&lt;/p&gt;
+&lt;p&gt;式中，$L$ 为材料的长度，$S$ 为面积。四探针对半导体表面的接触均为点接触，所以对半无穷大样品，电流 $I$ 是以探针尖为圆心呈径向放射状流入体内的，因而电流在体内所形成的等位面为半球面，如&lt;a class=&#34;link&#34; href=&#34;#fig2&#34; &gt;图 2&lt;/a&gt; 所示。&lt;/p&gt;
+&lt;span id= &#34;fig2&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://linkvesta.top/post/a54c5f4f/img/half-inf.png&#34;
+	width=&#34;728&#34;
+	height=&#34;261&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图 2：大厚度半无穷大样品上探针电流的分布及等势面图形示意图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;278&#34;
+		data-flex-basis=&#34;669px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;于是，样品电阻率为 $\rho$，半径为 $r$，间距为 $\mathrm{d}r$ 的两个半球等位面间的电阻为：&lt;/p&gt;
+&lt;p&gt;$$\mathrm{d}R = \frac{\rho}{2\uppi r^2}\ \mathrm{d}r$$&lt;/p&gt;
+&lt;p&gt;它们之间的电位差为：&lt;/p&gt;
+&lt;p&gt;$$\mathrm{d}V = I\ \mathrm{d}R = \frac{\rho I}{2\uppi r^2}\ \mathrm{d}r$$&lt;/p&gt;
+&lt;p&gt;考虑样品为半无限大，在 $r\rightarrow\infty$ 处的电位为 0，所以流经探针 1 的电流 $I$ 在 $r$ 点形成的电位为：&lt;/p&gt;
+&lt;p&gt;$$(V_r)_1 = \int_{r}^{\infty} \frac{\rho I}{2\uppi r^2} ,\mathrm{d}r = \frac{\rho I}{2\uppi r}$$&lt;/p&gt;
+&lt;p&gt;流经探针 1 的电流在 2、3 两探针间形成的电位差为：&lt;/p&gt;
+&lt;p&gt;$$(V_{23})_1 = \frac{\rho I}{2\uppi}\left(\frac{1}{r_{12}}-\frac{1}{r_{13}}\right)$$&lt;/p&gt;
+&lt;p&gt;流经探针 4 的电流与流经探针 1 的电流方向相反，所以流经探针 4 的电流 $I$ 在探针 2、3 之间引起的电位差为：&lt;/p&gt;
+&lt;p&gt;$$(V_{23})_4 = -\frac{\rho I}{2\uppi}\left(\frac{1}{r_{42}}-\frac{1}{r_{43}}\right)$$&lt;/p&gt;
+&lt;p&gt;于是流经探针 1、4 之间的电流在探针 2、3 之间形成的电位差为：&lt;/p&gt;
+&lt;p&gt;$$V_{23} = \frac{\rho I}{2\uppi}\left(\frac{1}{r_{12}}-\frac{1}{r_{13}}-\frac{1}{r_{42}}+\frac{1}{r_{43}}\right)$$&lt;/p&gt;
+&lt;p&gt;由此可得样品的电阻率为：&lt;/p&gt;
+&lt;p&gt;$$\rho = \frac{2\uppi V_{23}}{I}\left(\frac{1}{r_{12}}-\frac{1}{r_{13}}-\frac{1}{r_{42}}+\frac{1}{r_{43}}\right)^{-1}$$&lt;/p&gt;
+&lt;p&gt;此式就是四探针法测半无限大样品电阻率的普遍公式。在采用四探针测量电阻率时通常使用图等间距直线形结构，假设直线四探针的探针间距均为 $s$，则对于直线四探针有：&lt;/p&gt;
+&lt;p&gt;$$\rho = \frac{2\uppi s V_{23}}{I} = \frac{CV_{23}}{I}$$&lt;/p&gt;
+&lt;p&gt;式中，$C=2\uppi s$ 为探针系数。需要注意的是，此式只适用于厚度很大（样品厚度 $t &amp;gt; 4s$ ）的半无限大体材料。由于块状和棒状样品外形尺寸（ $t &amp;gt; 4 \ \mathrm{mm}$ ）与探针间距比较，合乎于半无限大的边界条件，或者当探头的任一探针到样品边缘的最近距离不小于 $4s$ 时，测量区的电阻率值可以直接由上式得出。当样品厚度和直径为有限大时，需要乘上修正因子。根据样品厚度$t$和直径$d$修正后的体电阻率为：&lt;/p&gt;
+&lt;p&gt;$$\rho = F_1\left(\frac{t}{s}\right) \cdot F_2\left(\frac{d}{s}\right) \cdot \frac{C V_{23}}{I}$$&lt;/p&gt;
+&lt;p&gt;式中，$F_1\left(\frac{t}{s}\right)$ 为厚度修正因子，$F_2\left(\frac{d}{s}\right)$ 为样品边缘与测试位置修正因子，这两个因子可以通过查表得到。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;半无穷大薄膜样品&#34;&gt;半无穷大薄膜样品&lt;/h2&gt;
+&lt;p&gt;半无限大薄膜样品上探针电流的分布及等势面如&lt;a class=&#34;link&#34; href=&#34;#fig3&#34; &gt;图 3&lt;/a&gt; 所示。&lt;/p&gt;
+&lt;span id= &#34;fig3&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://linkvesta.top/post/a54c5f4f/img/thin.png&#34;
+	width=&#34;728&#34;
+	height=&#34;217&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图 3：半无限大薄膜样品上探针电流的分布及等势面图形示意图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;335&#34;
+		data-flex-basis=&#34;805px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;当样品厚度 $t \ll s$ 时，可以将等电位面近似看成是一个圆柱面，高为 $t$，圆柱底面半径为 $r$，则等电位面的面积为：&lt;/p&gt;
+&lt;p&gt;$$A = 2\uppi r t$$&lt;/p&gt;
+&lt;p&gt;样品电阻率为 $\rho$，半径为 $r$，间距为 $\mathrm{d}r$ 的两个半球等位面间的电阻为：&lt;/p&gt;
+&lt;p&gt;$$\mathrm{d}R = \frac{\rho}{A}\ \mathrm{d}r$$&lt;/p&gt;
+&lt;p&gt;它们之间的电位差为：&lt;/p&gt;
+&lt;p&gt;$$\mathrm{d}V = I\ \mathrm{d}R = \frac{\rho I}{A}\ \mathrm{d}r$$&lt;/p&gt;
+&lt;p&gt;探针 1 的电流在 2、3 两探针间形成的电位差为：&lt;/p&gt;
+&lt;p&gt;$$(V_{23})_1 = \frac{\rho I}{2\uppi t} \cdot \ln \frac{r_{13}}{r_{12}} = \frac{\rho I}{2\uppi t} \cdot \ln 2$$&lt;/p&gt;
+&lt;p&gt;探针 4 的电流 $I$ 在探针 2、3 之间引起的电位差为：&lt;/p&gt;
+&lt;p&gt;$$(V_{23})_4 = -\frac{\rho I}{2\uppi t} \cdot \ln \frac{1}{2}$$&lt;/p&gt;
+&lt;p&gt;于是探针 2、3 之间形成的总电位差为&lt;/p&gt;
+&lt;p&gt;$$V_{23} = \frac{\rho I}{\uppi t} \cdot \ln 2$$&lt;/p&gt;
+&lt;p&gt;可得电阻率为：&lt;/p&gt;
+&lt;p&gt;$$\rho = \frac{\uppi t }{\ln 2} \cdot \frac{V_{23}}{I}$$&lt;/p&gt;
+&lt;p&gt;方块电阻是一个正方形的薄膜导电材料边到边之间的电阻。它的定义式为：&lt;/p&gt;
+&lt;span id= &#34;sheet&#34;&gt;
+$$R_\Box = \frac{\rho}{t} \tag{1}$$
+&lt;/span&gt;
+&lt;p&gt;方块电阻几何变量定义如&lt;a class=&#34;link&#34; href=&#34;#fig4&#34; &gt;图 4&lt;/a&gt; 所示：&lt;/p&gt;
+&lt;span id= &#34;fig4&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://linkvesta.top/post/a54c5f4f/img/sheet.png&#34;
+	width=&#34;481&#34;
+	height=&#34;205&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图 4：方块电阻几何变量定义示意图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;563px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;方块电阻与电阻的关系式为：&lt;/p&gt;
+&lt;p&gt;$$R = R_\Box \cdot \frac{L_1}{L_2}$$&lt;/p&gt;
+&lt;p&gt;式中，$L_1$ 应与电流方向平行，$L_2$ 应与 $L_1$ 垂直。
+由&lt;a class=&#34;link&#34; href=&#34;#sheet&#34; &gt;式 (1)&lt;/a&gt; 可得半无限大薄膜样品的方块电阻为：&lt;/p&gt;
+&lt;p&gt;$$R_\Box = \frac{\uppi}{\ln 2} \cdot \frac{V_{23}}{I} = k \cdot \frac{V_{23}}{I}$$&lt;/p&gt;
+&lt;p&gt;式中，系数 $k=\uppi/\ln 2$。方块电阻的常用单位为欧姆每方，写作 $\Omega/\Box$ 或 $\Omega/\mathrm{sq}$。方块电阻有一个特性，即任意大小的正方形边到边的电阻都是一样的，方块电阻仅与导电膜的厚度和电阻率有关。需要注意的是，上式只适用于样品厚度非常薄（ $t \ll s$ ）的半无限大二维（薄膜）材料。当样品厚度 $t$ 与 $s$ 相当或者直径 $d$ 为有限大时，需要将系数 $k$ 替换为厚度修正因子 $k_1\left(\frac{t}{s}\right)$ 与直径修正因子 $k_2\left(\frac{d}{s}\right)$ 的乘积进行修正，即：&lt;/p&gt;
+&lt;p&gt;$$R_\Box = k_1\left(\frac{t}{s}\right) \cdot k_2\left(\frac{d}{s}\right) \cdot \frac{V_{23}}{I}$$&lt;/p&gt;
+&lt;p&gt;薄片样品（ $t ≤ 4 \ \mathrm{mm}$ ）因为其厚度与探针间距比较不能忽略，测量时要提供样品的修正因子，可以通过查表得到。利用上式与&lt;a class=&#34;link&#34; href=&#34;#sheet&#34; &gt;式 (1)&lt;/a&gt; ，结合测量结果，便可求得样品的方块电阻与电阻率。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;参考文献&lt;/h2&gt;
+&lt;p&gt;由于本文的笔记属性，对参考文献的引用较多，引用内容无法在文中一一标注，敬请谅解。本文内容主要来源于课堂教案与以下文献：&lt;/p&gt;
+&lt;p class=&#34;bibl&#34;&gt;
+  &lt;span&gt;[1]&amp;emsp;吴先求,熊予莹. 近代物理实验教程（第二版）[M].北京:科学出版社,2009.&lt;/span&gt;
+&lt;/p&gt;</description>
+        </item>
+        <item>
         <title>核磁共振的基本原理</title>
         <link>https://linkvesta.top/post/cb856708/</link>
         <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
         
         <guid>https://linkvesta.top/post/cb856708/</guid>
         <description>&lt;img src="https://linkvesta.top/post/cb856708/img/cover.png" alt="Featured image of post 核磁共振的基本原理" /&gt;&lt;p&gt;核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发后的物质发现了核磁共振现象，并因此于 1944 年获得了诺贝尔物理学奖。时至今日，核磁共振已经成为了医学、化学、生物学等多个学科不可或缺的研究手段。&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;预备知识&#34;&gt;预备知识&lt;/h2&gt;
 &lt;p&gt;在学习核磁共振的基本原理之前，应首先了解本节内容。&lt;/p&gt;
 &lt;h3 id=&#34;原子核的自旋&#34;&gt;原子核的自旋&lt;/h3&gt;
