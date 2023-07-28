@@ -13,45 +13,15 @@
         
         <guid>https://linkvesta.top/about/</guid>
         <description>&lt;p&gt;欢迎您访问我的个人博客。&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
 &lt;p&gt;嘿，您好！我是 FissionNeutron，一名来自中国的物理专业学生。FissionNeutron 的中文翻译为裂变中子，取这个昵称一方面比较符合我主修专业的背景，另一方面也暗含了用思想激发思想之意。&lt;/p&gt;
 &lt;h3 id=&#34;爱好&#34;&gt;爱好&lt;/h3&gt;
-&lt;p&gt;我的爱好比较杂，但大多比较安静，比如搭乐高、写代码、摄影等等。最喜欢的电子游戏是小岛秀夫的《死亡搁浅》与《死亡搁浅：导演剪辑版》，平时也喜欢玩《我的世界》或者《城市：天际线》之类的沙盒游戏。除了这些以外，我在空闲的时候还喜欢自己动手制作一些东西，比如在 2020 年的夏天的时候，我自己搭建了一台 Prusa i3 结构的 3D 打印机，之后也用它打印了一些自己设计的三维模型，打印效果还是不错的。&lt;/p&gt;
+&lt;p&gt;我的爱好比较杂，但大多比较安静，比如搭乐高、写代码、摄影等等。最喜欢的电子游戏是小岛秀夫的《死亡搁浅》与《死亡搁浅：导演剪辑版》，平时也喜欢玩《我的世界》或者《城市：天际线》之类的沙盒游戏。除了这些以外，我在空闲的时候还喜欢自己动手制作一些东西。&lt;/p&gt;
 &lt;h3 id=&#34;语言&#34;&gt;语言&lt;/h3&gt;
 &lt;p&gt;我的母语是中文。英语是我的第二语言，使用英语沟通基本没有障碍。&lt;/p&gt;
 &lt;h3 id=&#34;技能&#34;&gt;技能&lt;/h3&gt;
-&lt;p&gt;以下是我的部分计算机技能，这些技能被我分为了三个等级用以表示技能的熟练度。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基础：
-&lt;ul&gt;
-&lt;li&gt;C++&lt;/li&gt;
-&lt;li&gt;MATLAB&lt;/li&gt;
-&lt;li&gt;CST Studio Suite&lt;/li&gt;
-&lt;li&gt;Multisim&lt;/li&gt;
-&lt;li&gt;……&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;中阶：
-&lt;ul&gt;
-&lt;li&gt;Photoshop&lt;/li&gt;
-&lt;li&gt;Cinema 4D&lt;/li&gt;
-&lt;li&gt;AutoCAD&lt;/li&gt;
-&lt;li&gt;KiCad&lt;/li&gt;
-&lt;li&gt;……&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;熟练：
-&lt;ul&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;$\LaTeX$&lt;/li&gt;
-&lt;li&gt;Word&lt;/li&gt;
-&lt;li&gt;Excel&lt;/li&gt;
-&lt;li&gt;PowerPoint&lt;/li&gt;
-&lt;li&gt;……&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;除了上述这些技能，我还会电子元件焊接、计算机基本维护、音视频剪辑等其他技能，在此不一一列举。&lt;/p&gt;
+&lt;p&gt;爱好是最好的老师，我的技能大都来源于我的爱好。编程、三维建模、剪辑之类的我都会一些，但都算不上非常专业。另外一些技能，例如微波仿真、电子电路方面的技能，则来源于我的一些个人经历。&lt;/p&gt;
 &lt;h3 id=&#34;联系方式&#34;&gt;联系方式&lt;/h3&gt;
 &lt;p&gt;如果您需要联系我，以下是我的联系方式。&lt;/p&gt;
 &lt;ul&gt;
@@ -59,13 +29,11 @@
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/FissionNeutron&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GitHub&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;关于本站&#34;&gt;关于本站&lt;/h2&gt;
 &lt;p&gt;本站是我的个人博客，主要记录一些我的想法、经验、笔记等内容，更新频率可能不是很高，希望我能坚持写下去吧。本站使用的是 Hugo 框架与 Stack 主题，目前部署于 &lt;a class=&#34;link&#34; href=&#34;https://pages.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GitHub Pages&lt;/a&gt;，并由 &lt;a class=&#34;link&#34; href=&#34;https://www.cloudflare.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Cloudflare&lt;/a&gt; 提供 DNS 与攻击防护等服务。目前而言，本站在中文文字排版上可能还存在一些问题。遗憾的是，我并没有找到特别好的解决方案。在未来，我会尽力解决这个问题，给您带来更好的阅读体验。&lt;/p&gt;
-&lt;p&gt;其实，我原本想建立一个个人的数字花园。数字花园与博客不同的地方在于，数字花园的组织结构更像是正在编纂中的维基百科，而博客的组织结构是具有时间流属性的。
-数字花园中的内容会随时间的推移逐渐发展成熟，而对于博客中的内容则会随着时间的流逝逐渐“腐烂”。但是我相信，利用分类、标签等手段，博文可以摆脱时间流的“束缚”，使博客中的内容通过分类学的方式重新构建联系，并通过对博文的编辑与更新防止博客内容的“腐烂”。因此，在这种情况下，我依旧选择了博客作为信息的传播媒介。&lt;/p&gt;
-&lt;p&gt;关于本站的域名，其实在购买的时候本意是想将其作为家中服务器的域名，然而由于某些原因，我还是将其用在了个人博客上。Vesta 是一个一直处在我的构想之中的智能家居服务。在罗马神话中，Vesta 是炉灶、家庭女神。使用 Vesta 来给这一服务命名，还是比较合适的，但用来给我的个人博客命名，那自然是有些不妥了。因此，在 2023 年 8 月，本站有很大概率将不再使用这个域名。我大约会在域名停用前一个月提前在本站贴出公告，届时请您留意。需要注意的是，在更换域名后，原域名下的域名邮箱将会停用。如果您需要通过邮箱联系我，请留意该联系方式变动。&lt;/p&gt;
 &lt;p&gt;最后，再一次欢迎您访问我的个人博客，祝您阅读愉快。&lt;/p&gt;
 </description>
         </item>

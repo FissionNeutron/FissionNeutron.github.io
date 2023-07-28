@@ -1,0 +1,43 @@
+[
+  {
+    "id": "Wu-2009",
+    "type": "book",
+    "ISBN": "978-7-03-024186-3",
+    "language": "zh",
+    "page": "270-281",
+    "publisher": "科学出版社",
+    "publisher-place": "北京",
+    "title": "近代物理实验教程",
+    "edition": "2",
+    "editor": [
+      {
+				"literal": "吴先求"
+			},
+      {
+				"literal": "熊予莹"
+			}
+    ],
+    "issued": {
+      "date-parts": [["2009"]]
+    }
+  },
+  {
+    "id": "Yang-2019",
+    "type": "book",
+    "ISBN": "978-7-04-052026-2",
+    "language": "zh",
+    "page": "284-287",
+    "publisher": "高等教育出版社",
+    "publisher-place": "北京",
+    "title": "原子物理学",
+    "edition": "5",
+    "author": [
+      {
+				"literal": "杨福家"
+			}
+    ],
+    "issued": {
+      "date-parts": [["2019"]]
+    }
+  }
+]
