@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>分类 on FissionNeutron的博客</title>
-        <link>https://linkvesta.top/categories/</link>
+        <link>https://fissionneutron.com/categories/</link>
         <description>Recent content in 分类 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://linkvesta.top/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://fissionneutron.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记</title>
-        <link>https://linkvesta.top/categories/notes/</link>
+        <link>https://fissionneutron.com/categories/notes/</link>
         <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://linkvesta.top/categories/notes/</guid>
-        <description>&lt;img src="https://linkvesta.top/categories/notes/cover.jpg" alt="Featured image of post 学习笔记" /&gt;</description>
+        <guid>https://fissionneutron.com/categories/notes/</guid>
+        <description>&lt;img src="https://fissionneutron.com/categories/notes/cover.jpg" alt="Featured image of post 学习笔记" /&gt;</description>
         </item>
         
     </channel>

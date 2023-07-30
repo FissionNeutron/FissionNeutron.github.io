@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on FissionNeutron的博客</title>
-        <link>https://linkvesta.top/page/</link>
+        <link>https://fissionneutron.com/page/</link>
         <description>Recent content in Pages on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sat, 13 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://linkvesta.top/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 13 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://fissionneutron.com/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于</title>
-        <link>https://linkvesta.top/about/</link>
+        <link>https://fissionneutron.com/about/</link>
         <pubDate>Sat, 13 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://linkvesta.top/about/</guid>
+        <guid>https://fissionneutron.com/about/</guid>
         <description>&lt;p&gt;欢迎您访问我的个人博客。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
@@ -25,7 +25,7 @@
 &lt;h3 id=&#34;联系方式&#34;&gt;联系方式&lt;/h3&gt;
 &lt;p&gt;如果您需要联系我，以下是我的联系方式。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:admin@linkvesta.top&#34; &gt;电子邮箱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:admin@fissionneutron.com&#34; &gt;电子邮箱&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/FissionNeutron&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GitHub&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,18 +39,18 @@
         </item>
         <item>
         <title>归档</title>
-        <link>https://linkvesta.top/archives/</link>
+        <link>https://fissionneutron.com/archives/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://linkvesta.top/archives/</guid>
+        <guid>https://fissionneutron.com/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://linkvesta.top/search/</link>
+        <link>https://fissionneutron.com/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://linkvesta.top/search/</guid>
+        <guid>https://fissionneutron.com/search/</guid>
         <description></description>
         </item>
         
