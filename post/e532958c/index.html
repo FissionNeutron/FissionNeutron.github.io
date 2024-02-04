@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务'><title>使用 Git 在不同设备间同步 Obsidian 库</title>
+
+<link rel='canonical' href='https://fissionneutron.com/post/e532958c/'>
+
+<link rel="stylesheet" href="/scss/style.min.873c62cd62b354e610df4d1832ff4ecfcb1d111919d779ae324ee0fbd51d37fd.css"><meta property='og:title' content='使用 Git 在不同设备间同步 Obsidian 库'>
+<meta property='og:description' content='起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务'>
+<meta property='og:url' content='https://fissionneutron.com/post/e532958c/'>
+<meta property='og:site_name' content='FissionNeutron的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='工具' /><meta property='article:published_time' content='2024-02-04T20:27:16&#43;08:00'/><meta property='article:modified_time' content='2024-02-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://fissionneutron.com/post/e532958c/img/cover.png' />
+<meta name="twitter:title" content="使用 Git 在不同设备间同步 Obsidian 库">
+<meta name="twitter:description" content="起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://fissionneutron.com/post/e532958c/img/cover.png' />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+<style>
+    :root {
+        --article-font-family: "Noto Serif", "Noto Serif SC", var(--base-font-family);
+    }
+</style>
+
+<script>
+		(function () {
+		    const customFont = document.createElement('link');
+		    customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Mono&display=swap";
+		
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+
+        
+		
+		
+		
+		
+		
+		
+		
+		
+
+</script>
+
+<style>
+
+	section.bibliography>ol {
+		padding-left: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	li.bib-item { 
+		display: flex;
+	}
+
+	div.bib-index {
+		flex: 0	0 2em;
+		margin-right: 1em;
+		text-align: right;
+
+	}
+
+	div.bib-object {
+		-webkit-hyphens: auto;
+		hyphens: auto;
+	}
+
+	a.bib-link {
+  		position: relative;
+		align-items: bottom;
+	}
+
+	a.bib-link>svg {
+		height: 1em;
+		width: 1em;
+	}
+
+</style>
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu11f720e8b7606021d7f7e00fc203c204_20771_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📖</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">FissionNeutron</a></h1>
+            <h2 class="site-description">个人博客</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:admin@fissionneutron.com'
+                        target="_blank"
+                        title="Email"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/FissionNeutron'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li  class='current' >
+            <a href='/post/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+  <path d="M9 9l1 0" />
+  <path d="M9 13l6 0" />
+  <path d="M9 17l6 0" />
+</svg>
+                
+                <span>博文</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <path d="M10 12l4 0" />
+</svg>
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+  <path d="M21 21l-6 -6" />
+</svg>
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M2 6m0 6a6 6 0 0 1 6 -6h8a6 6 0 0 1 6 6v0a6 6 0 0 1 -6 6h-8a6 6 0 0 1 -6 -6z" />
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M16 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M2 6m0 6a6 6 0 0 1 6 -6h8a6 6 0 0 1 6 6v0a6 6 0 0 1 -6 6h-8a6 6 0 0 1 -6 -6z" />
+</svg>
+                    <span>深色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article" style="text-align:justify; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/e532958c/">
+                <img src="/post/e532958c/img/cover.png"
+                        
+                        width="854" 
+                        height="480" 
+                        loading="lazy"
+                        alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/messing/" style="background-color: #ef6122; color: #fff;">
+                折腾记录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/e532958c/">使用 Git 在不同设备间同步 Obsidian 库</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 04, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+  <path d="M12 7v5l3 3" />
+</svg>
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="起因">起因</h2>
+<p>我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。</p>
+<hr>
+<h2 id="服务端准备">服务端准备</h2>
+<p>首先，要在服务器上安装 Git。通过 SSH 连接到服务器，并使用 <code>apt</code> 命令进行安装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了方便管理，需要创建一个用户组与用户来运行 Git。先创建一个名叫 <code>git</code> 的用户组，再在该用户组中创建一个名叫 <code>git</code> 的用户。注意，不要为 <code>git</code> 用户设置口令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo groupadd git
+</span></span><span class="line"><span class="cl">sudo useradd git -g git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>出于安全考虑，需要限制 <code>git</code> 用户仅可通过 SSH 使用 Git。通过以下命令打开 <code>/etc/passwd</code> 文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vi /etc/passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>找到关于 <code>git</code> 用户的行，将末尾最后一个冒号后的默认 Shell 字段替换为 <code>/usr/bin/git-shell</code>。该行修改后的形式应与下方代码块中所示的类似。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git:x:1001:1001::/home/git:/usr/bin/git-shell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此，服务端基本准备完成。</p>
+<hr>
+<h2 id="密钥">密钥</h2>
+<p>在 Windows 设备上，打开终端，生成 RSA 公钥与私钥。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">cd </span><span class="p">~\.</span><span class="py">ssh</span>
+</span></span><span class="line"><span class="cl"><span class="nb">ssh-keygen</span> <span class="n">-t</span> <span class="n">rsa</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当提示输入保存密钥的文件时，不建议使用默认文件名 <code>id_rsa</code>，建议自定义一个方便辨认的文件名，输入后按下回车。在这里，我以 <code>id_rsa_server_git</code> 为文件名保存密钥。随后出现的提示，可以根据需要自行配置，如不需要配置，皆按回车即可，完成密钥生成。此时，在 <code>~\.ssh</code> 目录中会生成两个文件，一个是名为 <code>id_rsa_server_git</code> 的私钥文件；另一个则是名为 <code>id_rsa_server_git.pub</code> 的公钥文件。</p>
+<p>在 <code>~\.ssh</code> 目录中打开 <code>config</code> 文件。如果没有 <code>config</code> 文件，创建一个即可。在该文件中新增以下内容，其中需要将 <code>HostName</code> 字段中的 <code>server.lan</code> 修改为服务端的地址或域名， <code>Host</code> 字段中的 <code>Server-git</code> 可以进行自定义。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host Server-git
+</span></span><span class="line"><span class="cl">    HostName server.lan
+</span></span><span class="line"><span class="cl">    User git
+</span></span><span class="line"><span class="cl">    PreferredAuthentications publickey
+</span></span><span class="line"><span class="cl">    IdentityFile ~/.ssh/id_rsa_server_git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在管理员终端中使用如下命令启动 OpenSSH Authentication Agent 服务，并将其设置为开机自启动。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Start-Service</span> <span class="nb">ssh-agent</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-Service</span> <span class="nb">ssh-agent</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了在使用 Git 时自动运行 <code>ssh-agent</code>，参考 Github 文档中提供的方法，创建 <code>~/.profile</code> 文件，并将以下内容粘贴其中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">env</span><span class="o">=</span>~/.ssh/agent.env
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">agent_load_env <span class="o">()</span> <span class="o">{</span> <span class="nb">test</span> -f <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">agent_start <span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="nb">umask</span> 077<span class="p">;</span> ssh-agent &gt;<span class="p">|</span> <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">agent_load_env
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running</span>
+</span></span><span class="line"><span class="cl"><span class="nv">agent_run_state</span><span class="o">=</span><span class="k">$(</span>ssh-add -l &gt;<span class="p">|</span> /dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">2</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    agent_start
+</span></span><span class="line"><span class="cl">    ssh-add
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    ssh-add
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> env
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在终端中使用以下命令设置用户环境变量。设置完成后需重新启动系统。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span><span class="no">System.Environment</span><span class="p">]::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GIT-SSH&#39;</span><span class="p">,</span><span class="s1">&#39;C:\Windows\System32\OpenSSH\ssh.exe&#39;</span><span class="p">,[</span><span class="no">System.EnvironmentVariableTarget</span><span class="p">]::</span><span class="n">User</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打开之前生成的公钥 <code>id_rsa_server_git.pub</code> 文件，将其中的内容全部添加到服务端的 <code>/home/git/.ssh/authorized_keys</code> 文件中，一个公钥占一行。此时，在 Windows 设备的终端中使用以下命令确认配置是否正确。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">git</span><span class="nv">@server</span><span class="p">.</span><span class="py">lan</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>若没有提示需要输入口令，且弹出如下提示并断开连接，即配置成功。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fatal: Interactive git shell is not enabled.
+</span></span><span class="line"><span class="cl">hint: ~/git-shell-commands should exist and have read and execute access.
+</span></span><span class="line"><span class="cl">Connection to server.lan closed.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在所有需要同步的 Windows 设备上，均需要完成本节中的操作。</p>
+<hr>
+<h2 id="初始化-git-仓库">初始化 Git 仓库</h2>
+<p>在服务端的合适位置创建 Git 裸仓库。在这里我在 <code>git</code> 用户的目录下创建了 <code>git_repos</code> 目录用以存放仓库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo mkdir /home/git/git_repos
+</span></span><span class="line"><span class="cl">sudo git init --bare /home/git/git_repos/obsidian_vault.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 <code>/home/git/git_repos</code> 目录内的所有文件与目录之所有者移交给 <code>git</code> 用户。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chown -R git:git /home/git/git_repos
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在某一台需要同步的 Windows 设备上克隆该仓库到设备。在合适的位置启动终端，并使用以下命令进行克隆。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nv">@server</span><span class="p">.</span><span class="n">lan</span><span class="err">:</span><span class="p">/</span><span class="n">home</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">git_repos</span><span class="p">/</span><span class="n">obsidian_vault</span><span class="p">.</span><span class="py">git</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时，在对应目录中会出现 <code>obsidian_vault</code> 目录，进入该目录，创建 <code>.gitignore</code> 文件，告诉 Git 在提交时要忽略哪些文件和目录。<code>.gitignore</code> 文件中的内容可以按需更改，下面仅作为示例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.obsidian/
+</span></span><span class="line"><span class="cl">#.obsidian/plugins
+</span></span><span class="line"><span class="cl">#.obsidian/workspace.json
+</span></span><span class="line"><span class="cl">#.obsidian/workspace-mobile.json
+</span></span><span class="line"><span class="cl">.trash/
+</span></span><span class="line"><span class="cl">.DS_Store
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外，为了避免 CRLF 与 LF 的问题，还需创建 <code>.gitattributes</code> 文件。同样，该文件的内容可以按需更改，下面仅作为示例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* text=auto
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*.md text
+</span></span><span class="line"><span class="cl">*.txt text
+</span></span><span class="line"><span class="cl">*.js text
+</span></span><span class="line"><span class="cl">*.json text
+</span></span><span class="line"><span class="cl">*.html text
+</span></span><span class="line"><span class="cl">*.css text
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*.png binary
+</span></span><span class="line"><span class="cl">*.jpg binary
+</span></span><span class="line"><span class="cl">*.gif binary
+</span></span><span class="line"><span class="cl">*.bmp binary
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此，便可以将已有的 Obsidian 库中的所有内容复制到 <code>obsidian_vault</code> 目录，并在该目录下利用终端使用以下命令进行暂存、提交、推送。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">commit</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意的是，在第一次推送完成后，需要在所有未克隆过远程仓库的 Windows 设备上进行一次克隆。</p>
+<hr>
+<h2 id="同步-obsidian-库">同步 Obsidian 库</h2>
+<p>启动 Obsidian 并打开<code>obsidian_vault</code> 目录。在设置中的第三方插件下关闭安全模式，随后浏览社区插件市场，搜索并安装 Git 插件，并在安装的插件中启用它。此时，插件便已经可以读取到 Git 仓库的信息。打开命令面板，搜索 <code>Git: Open source control view</code> 并点击相应条目，便可在右侧的侧边栏中进行暂存、提交、推送、拉取等操作，以实现同步。插件的具体使用方法与配置详见 Git 插件的 GitHub 页面与文档，在此不多赘述。至此，已完成使用 Git 在不同设备间同步 Obsidian 库的基本配置。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+  <path d="M12 7v5l3 3" />
+</svg>
+        <span>
+            最后更新于 Feb 04, 2024
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6&#43;HX0sLNAK3q71HotJqlAn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"integrity="sha384-cpW21h6RZv/phavutF&#43;AuVYrr&#43;dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            macros: {
+                "\\upalpha":   "\\textup{α}",
+                "\\upbeta":    "\\textup{β}",
+                "\\upgamma":   "\\textup{γ}",
+                "\\updelta":   "\\textup{δ}",
+                "\\upepsilon": "\\textup{ϵ}",
+                "\\upzeta":    "\\textup{ζ}",
+                "\\upeta":     "\\textup{η}",
+                "\\uptheta":   "\\textup{θ}",
+                "\\upiota":    "\\textup{ι}",
+                "\\upkappa":   "\\textup{κ}",
+                "\\uplambda":  "\\textup{λ}",
+                "\\upmu":      "\\textup{μ}",
+                "\\upnu":      "\\textup{ν}",
+                "\\upxi":      "\\textup{ξ}",
+                "\\upomicron": "\\textup{ο}",
+                "\\uppi":      "\\textup{π}",
+                "\\uprho":     "\\textup{ρ}",
+                "\\upsigma":   "\\textup{σ}",
+                "\\uptau":     "\\textup{τ}",
+                "\\upupsilon": "\\textup{υ}",
+                "\\upphi":     "\\textup{φ}",
+                "\\upchi":     "\\textup{χ}",
+                "\\uppsi":     "\\textup{ψ}",
+                "\\upomega":   "\\textup{ω}",
+
+            },
+            trust: true,
+        });})
+</script>
+
+<style>
+    .katex {
+        font-family: "KaTeX_Main", "Noto Serif", "Noto Serif SC", "Times New Roman", serif;
+    }
+
+	.katex-display {
+	  min-height: 100%;
+	  width: 100%;
+	  overflow-x: auto;
+	  overflow-y: hidden;
+	}
+</style>
+
+
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="FissionNeutron/FissionNeutron.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNDI0NzQxODI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDODnPcxs4CQrM_"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 FissionNeutron
+    </section>
+    
+    <section class="powerby">
+        
+            部署于 <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> <br/>
+        通过 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 框架生成 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 9l14 0" />
+  <path d="M5 15l14 0" />
+  <path d="M11 4l-4 16" />
+  <path d="M17 4l-4 16" />
+</svg>
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#起因">起因</a></li>
+    <li><a href="#服务端准备">服务端准备</a></li>
+    <li><a href="#密钥">密钥</a></li>
+    <li><a href="#初始化-git-仓库">初始化 Git 仓库</a></li>
+    <li><a href="#同步-obsidian-库">同步 Obsidian 库</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+    </body>
+</html>
