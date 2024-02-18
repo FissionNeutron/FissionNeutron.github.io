@@ -6,7 +6,161 @@
         <description>Recent content in 工具 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 04 Feb 2024 20:27:16 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 18 Feb 2024 22:47:27 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>利用 WebDAV 同步 Zotero 的文献</title>
+        <link>https://fissionneutron.com/post/9b8662dd/</link>
+        <pubDate>Sun, 18 Feb 2024 22:47:27 +0800</pubDate>
+        
+        <guid>https://fissionneutron.com/post/9b8662dd/</guid>
+        <description>&lt;img src="https://fissionneutron.com/post/9b8662dd/img/cover.png" alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服务器通过 WebDAV 的方法进行同步。&lt;/p&gt;
+&lt;p&gt;需要注意的是，WebDAV 这种同步方式不能对笔记、批注等数据进行同步。这些数据只能通过 Zotero 自己的同步服务进行同步。WebDAV 可以对文献的 PDF、网页等附件进行同步。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;搭建-webdav-服务器&#34;&gt;搭建 WebDAV 服务器&lt;/h2&gt;
+&lt;p&gt;在这里，我选择使用 Nginx 作为 Web 服务器。Nginx 的安装与基本配置在此不做展示。在接下来的 WebDAV 配置中，还需要使用 &lt;code&gt;nginx-dav-ext-module&lt;/code&gt; 组件，使用以下命令在 Debian 服务器上安装该组件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install libnginx-mod-http-dav-ext
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;服务器上安装了一块用于存储文件的大容量硬盘，其挂载与 &lt;code&gt;/mnt/storage&lt;/code&gt;。创建 WebDAV 存储文件的目录，并将权限移交于 &lt;code&gt;www-data&lt;/code&gt; 用户。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir /mnt/storage/webdav
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chown -R www-data:www-data /mnt/storage/webdav
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我使用二级域名的方案进行配置，以 &lt;code&gt;webdav.server.lan&lt;/code&gt; 作为 WebDAV 服务器域名。利用以下命令创建并编辑配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vi /etc/nginx/conf.d/webdav.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在配置文件中粘贴以下内容，并根据具体情况进行调整。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;server {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    listen 80;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    server_name webdav.server.lan;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    charset utf-8;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    root /mnt/storage/webdav;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    auth_basic realm_name;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    auth_basic_user_file /etc/nginx/conf.d/.webdav_passwd.list;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    autoindex on;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    dav_methods PUT DELETE MKCOL COPY MOVE;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    dav_ext_methods PROPFIND OPTIONS;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    dav_access user:rw group:rw all:r;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    create_full_put_path on;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    client_max_body_size 1024m;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我使用的是内网域名，不方便配置 SSL，因此使用 HTTP 协议。编辑 &lt;code&gt;server_name&lt;/code&gt; 字段以调整服务器要绑定的域名；编辑 &lt;code&gt;root&lt;/code&gt; 字段调整  WebDAV 存储文件的目录；编辑 &lt;code&gt;client_max_body_size&lt;/code&gt; 字段调整文件大小限制。在这里我还启用了登陆验证，编辑 &lt;code&gt;auth_basic_user_file&lt;/code&gt; 字段调整用户登录信息存储位置。使用以下命令设置第一个用户与其登录密码。下面命令中的 &lt;code&gt;username&lt;/code&gt; 可替换为所需的用户名，注意区分大小写。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; -n &lt;span class=&#34;s1&#34;&gt;&amp;#39;username:&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tee -a /etc/nginx/conf.d/.webdav_passwd.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo openssl passwd -apr1 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tee -a /etc/nginx/conf.d/.webdav_passwd.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;使用以下命令测试配置文件是否有效。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nginx -t
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;完成测试且无报错，即可重启 Nginx 服务。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart nginx.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;重启服务后在 Windows 设备上打开浏览器，进入 &lt;code&gt;webdav.server.lan&lt;/code&gt; 便可看到 WebDAV 网页。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;zotero-同步配置&#34;&gt;Zotero 同步配置&lt;/h2&gt;
+&lt;p&gt;在 Windows 设备上打开 Zotero 软件，在菜单栏中点击“编辑”，在下拉菜单中点击“首选项”，随后在弹出的“Zotero 首选项”对话框中点击“同步”选项卡。如若尚未注册过 Zotero 账号，则需要注册一个。登录账号后，需要将同步方式从 Zotero 变更为 WebDAV，选择 HTTP 协议，输入域名、用户名、密码。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_1.png&#34;
+	width=&#34;480&#34;
+	height=&#34;553&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;“Zotero 首选项”中的“同步”选项卡&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;86&#34;
+		data-flex-basis=&#34;208px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;点击“验证服务器”按钮，因为此时 WebDAV 存储文件的目录为空，第一次点击按钮会提示自动创建 &lt;code&gt;zotero&lt;/code&gt; 目录，再次点击按钮便会提示设定成功。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_2.png&#34;
+	width=&#34;300&#34;
+	height=&#34;103&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;同步设定成功提示&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;291&#34;
+		data-flex-basis=&#34;699px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;完成配置后点击“OK”按钮，并点击 Zotero 窗口右上角的绿色同步按钮进行同步。刷新浏览器中的 WebDAV 网页，可以看到新增了一个 &lt;code&gt;zotero&lt;/code&gt; 目录，进入目录后若出现同步文件，则完成同步配置。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>使用 Git 在不同设备间同步 Obsidian 库</title>
         <link>https://fissionneutron.com/post/e532958c/</link>
         <pubDate>Sun, 04 Feb 2024 20:27:16 +0800</pubDate>
@@ -277,7 +431,7 @@
 &lt;/div&gt;&lt;p&gt;需要注意的是，在第一次推送完成后，需要在所有未克隆过远程仓库的 Windows 设备上进行一次克隆。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;同步-obsidian-库&#34;&gt;同步 Obsidian 库&lt;/h2&gt;
-&lt;p&gt;启动 Obsidian 并打开&lt;code&gt;obsidian_vault&lt;/code&gt; 目录。在设置中的第三方插件下关闭安全模式，随后浏览社区插件市场，搜索并安装 Git 插件，并在安装的插件中启用它。此时，插件便已经可以读取到 Git 仓库的信息。打开命令面板，搜索 &lt;code&gt;Git: Open source control view&lt;/code&gt; 并点击相应条目，便可在右侧的侧边栏中进行暂存、提交、推送、拉取等操作，以实现同步。插件的具体使用方法与配置详见 Git 插件的 GitHub 页面与文档，在此不多赘述。至此，已完成使用 Git 在不同设备间同步 Obsidian 库的基本配置。&lt;/p&gt;
+&lt;p&gt;启动 Obsidian 并打开 &lt;code&gt;obsidian_vault&lt;/code&gt; 目录。在设置中的第三方插件下关闭安全模式，随后浏览社区插件市场，搜索并安装 Git 插件，并在安装的插件中启用它。此时，插件便已经可以读取到 Git 仓库的信息。打开命令面板，搜索 &lt;code&gt;Git: Open source control view&lt;/code&gt; 并点击相应条目，便可在右侧的侧边栏中进行暂存、提交、推送、拉取等操作，以实现同步。插件的具体使用方法与配置详见 Git 插件的 GitHub 页面与文档，在此不多赘述。至此，已完成使用 Git 在不同设备间同步 Obsidian 库的基本配置。&lt;/p&gt;
 </description>
         </item>
         

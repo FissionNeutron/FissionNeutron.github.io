@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务'><title>使用 Git 在不同设备间同步 Obsidian 库</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='起因 我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服'><title>利用 WebDAV 同步 Zotero 的文献</title>
 
-<link rel='canonical' href='https://fissionneutron.com/post/e532958c/'>
+<link rel='canonical' href='https://fissionneutron.com/post/9b8662dd/'>
 
-<link rel="stylesheet" href="/scss/style.min.873c62cd62b354e610df4d1832ff4ecfcb1d111919d779ae324ee0fbd51d37fd.css"><meta property='og:title' content='使用 Git 在不同设备间同步 Obsidian 库'>
-<meta property='og:description' content='起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务'>
-<meta property='og:url' content='https://fissionneutron.com/post/e532958c/'>
+<link rel="stylesheet" href="/scss/style.min.873c62cd62b354e610df4d1832ff4ecfcb1d111919d779ae324ee0fbd51d37fd.css"><meta property='og:title' content='利用 WebDAV 同步 Zotero 的文献'>
+<meta property='og:description' content='起因 我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服'>
+<meta property='og:url' content='https://fissionneutron.com/post/9b8662dd/'>
 <meta property='og:site_name' content='FissionNeutron的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='工具' /><meta property='article:published_time' content='2024-02-04T20:27:16&#43;08:00'/><meta property='article:modified_time' content='2024-02-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://fissionneutron.com/post/e532958c/img/cover.png' />
-<meta name="twitter:title" content="使用 Git 在不同设备间同步 Obsidian 库">
-<meta name="twitter:description" content="起因 我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。 服务"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://fissionneutron.com/post/e532958c/img/cover.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='工具' /><meta property='article:published_time' content='2024-02-18T22:47:27&#43;08:00'/><meta property='article:modified_time' content='2024-02-18T00:00:00&#43;00:00'/><meta property='og:image' content='https://fissionneutron.com/post/9b8662dd/img/cover.png' />
+<meta name="twitter:title" content="利用 WebDAV 同步 Zotero 的文献">
+<meta name="twitter:description" content="起因 我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://fissionneutron.com/post/9b8662dd/img/cover.png' />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
 <style>
     :root {
@@ -292,13 +292,13 @@
     <article class="has-image main-article" style="text-align:justify; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;">
     <header class="article-header">
         <div class="article-image">
-            <a href="/post/e532958c/">
-                <img src="/post/e532958c/img/cover.png"
+            <a href="/post/9b8662dd/">
+                <img src="/post/9b8662dd/img/cover.png"
                         
-                        width="854" 
+                        width="768" 
                         height="480" 
                         loading="lazy"
-                        alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" />
+                        alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" />
                 
             </a>
         </div>
@@ -317,7 +317,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/e532958c/">使用 Git 在不同设备间同步 Obsidian 库</a>
+            <a href="/post/9b8662dd/">利用 WebDAV 同步 Zotero 的文献</a>
         </h2>
     
         
@@ -336,7 +336,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Feb 04, 2024</time>
+                <time class="article-time--published">Feb 18, 2024</time>
             </div>
         
 
@@ -348,7 +348,7 @@
   <path d="M12 7v5l3 3" />
 </svg>
                 <time class="article-time--reading">
-                    阅读时长: 4 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -363,91 +363,40 @@
     
     
     <h2 id="起因">起因</h2>
-<p>我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。</p>
+<p>我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服务器通过 WebDAV 的方法进行同步。</p>
+<p>需要注意的是，WebDAV 这种同步方式不能对笔记、批注等数据进行同步。这些数据只能通过 Zotero 自己的同步服务进行同步。WebDAV 可以对文献的 PDF、网页等附件进行同步。</p>
 <hr>
-<h2 id="服务端准备">服务端准备</h2>
-<p>首先，要在服务器上安装 Git。通过 SSH 连接到服务器，并使用 <code>apt</code> 命令进行安装。</p>
+<h2 id="搭建-webdav-服务器">搭建 WebDAV 服务器</h2>
+<p>在这里，我选择使用 Nginx 作为 Web 服务器。Nginx 的安装与基本配置在此不做展示。在接下来的 WebDAV 配置中，还需要使用 <code>nginx-dav-ext-module</code> 组件，使用以下命令在 Debian 服务器上安装该组件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install git
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install libnginx-mod-http-dav-ext
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>为了方便管理，需要创建一个用户组与用户来运行 Git。先创建一个名叫 <code>git</code> 的用户组，再在该用户组中创建一个名叫 <code>git</code> 的用户。注意，不要为 <code>git</code> 用户设置口令。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo groupadd git
-</span></span><span class="line"><span class="cl">sudo useradd git -g git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>出于安全考虑，需要限制 <code>git</code> 用户仅可通过 SSH 使用 Git。通过以下命令打开 <code>/etc/passwd</code> 文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vi /etc/passwd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>找到关于 <code>git</code> 用户的行，将末尾最后一个冒号后的默认 Shell 字段替换为 <code>/usr/bin/git-shell</code>。该行修改后的形式应与下方代码块中所示的类似。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git:x:1001:1001::/home/git:/usr/bin/git-shell
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>至此，服务端基本准备完成。</p>
-<hr>
-<h2 id="密钥">密钥</h2>
-<p>在 Windows 设备上，打开终端，生成 RSA 公钥与私钥。</p>
+</div><p>服务器上安装了一块用于存储文件的大容量硬盘，其挂载与 <code>/mnt/storage</code>。创建 WebDAV 存储文件的目录，并将权限移交于 <code>www-data</code> 用户。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">cd </span><span class="p">~\.</span><span class="py">ssh</span>
-</span></span><span class="line"><span class="cl"><span class="nb">ssh-keygen</span> <span class="n">-t</span> <span class="n">rsa</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo mkdir /mnt/storage/webdav
+</span></span><span class="line"><span class="cl">sudo chown -R www-data:www-data /mnt/storage/webdav
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>当提示输入保存密钥的文件时，不建议使用默认文件名 <code>id_rsa</code>，建议自定义一个方便辨认的文件名，输入后按下回车。在这里，我以 <code>id_rsa_server_git</code> 为文件名保存密钥。随后出现的提示，可以根据需要自行配置，如不需要配置，皆按回车即可，完成密钥生成。此时，在 <code>~\.ssh</code> 目录中会生成两个文件，一个是名为 <code>id_rsa_server_git</code> 的私钥文件；另一个则是名为 <code>id_rsa_server_git.pub</code> 的公钥文件。</p>
-<p>在 <code>~\.ssh</code> 目录中打开 <code>config</code> 文件。如果没有 <code>config</code> 文件，创建一个即可。在该文件中新增以下内容，其中需要将 <code>HostName</code> 字段中的 <code>server.lan</code> 修改为服务端的地址或域名， <code>Host</code> 字段中的 <code>Server-git</code> 可以进行自定义。</p>
+</div><p>我使用二级域名的方案进行配置，以 <code>webdav.server.lan</code> 作为 WebDAV 服务器域名。利用以下命令创建并编辑配置文件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host Server-git
-</span></span><span class="line"><span class="cl">    HostName server.lan
-</span></span><span class="line"><span class="cl">    User git
-</span></span><span class="line"><span class="cl">    PreferredAuthentications publickey
-</span></span><span class="line"><span class="cl">    IdentityFile ~/.ssh/id_rsa_server_git
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vi /etc/nginx/conf.d/webdav.conf
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在管理员终端中使用如下命令启动 OpenSSH Authentication Agent 服务，并将其设置为开机自启动。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Start-Service</span> <span class="nb">ssh-agent</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Set-Service</span> <span class="nb">ssh-agent</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>为了在使用 Git 时自动运行 <code>ssh-agent</code>，参考 Github 文档中提供的方法，创建 <code>~/.profile</code> 文件，并将以下内容粘贴其中。</p>
+</div><p>在配置文件中粘贴以下内容，并根据具体情况进行调整。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -473,161 +422,92 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">env</span><span class="o">=</span>~/.ssh/agent.env
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen 80;
+</span></span><span class="line"><span class="cl">    server_name webdav.server.lan;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">agent_load_env <span class="o">()</span> <span class="o">{</span> <span class="nb">test</span> -f <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    charset utf-8;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">agent_start <span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="nb">umask</span> 077<span class="p">;</span> ssh-agent &gt;<span class="p">|</span> <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    root /mnt/storage/webdav;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">agent_load_env
+</span></span><span class="line"><span class="cl">    auth_basic realm_name;
+</span></span><span class="line"><span class="cl">    auth_basic_user_file /etc/nginx/conf.d/.webdav_passwd.list;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running</span>
-</span></span><span class="line"><span class="cl"><span class="nv">agent_run_state</span><span class="o">=</span><span class="k">$(</span>ssh-add -l &gt;<span class="p">|</span> /dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    autoindex on;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">2</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    agent_start
-</span></span><span class="line"><span class="cl">    ssh-add
-</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    ssh-add
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    dav_methods PUT DELETE MKCOL COPY MOVE;
+</span></span><span class="line"><span class="cl">    dav_ext_methods PROPFIND OPTIONS;
+</span></span><span class="line"><span class="cl">    dav_access user:rw group:rw all:r;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">unset</span> env
+</span></span><span class="line"><span class="cl">    create_full_put_path on;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    client_max_body_size 1024m;
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在终端中使用以下命令设置用户环境变量。设置完成后需重新启动系统。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span><span class="no">System.Environment</span><span class="p">]::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GIT-SSH&#39;</span><span class="p">,</span><span class="s1">&#39;C:\Windows\System32\OpenSSH\ssh.exe&#39;</span><span class="p">,[</span><span class="no">System.EnvironmentVariableTarget</span><span class="p">]::</span><span class="n">User</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>打开之前生成的公钥 <code>id_rsa_server_git.pub</code> 文件，将其中的内容全部添加到服务端的 <code>/home/git/.ssh/authorized_keys</code> 文件中，一个公钥占一行。此时，在 Windows 设备的终端中使用以下命令确认配置是否正确。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">git</span><span class="nv">@server</span><span class="p">.</span><span class="py">lan</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>若没有提示需要输入口令，且弹出如下提示并断开连接，即配置成功。</p>
+</div><p>我使用的是内网域名，不方便配置 SSL，因此使用 HTTP 协议。编辑 <code>server_name</code> 字段以调整服务器要绑定的域名；编辑 <code>root</code> 字段调整  WebDAV 存储文件的目录；编辑 <code>client_max_body_size</code> 字段调整文件大小限制。在这里我还启用了登陆验证，编辑 <code>auth_basic_user_file</code> 字段调整用户登录信息存储位置。使用以下命令设置第一个用户与其登录密码。下面命令中的 <code>username</code> 可替换为所需的用户名，注意区分大小写。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fatal: Interactive git shell is not enabled.
-</span></span><span class="line"><span class="cl">hint: ~/git-shell-commands should exist and have read and execute access.
-</span></span><span class="line"><span class="cl">Connection to server.lan closed.
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo <span class="nb">echo</span> -n <span class="s1">&#39;username:&#39;</span> <span class="p">|</span> tee -a /etc/nginx/conf.d/.webdav_passwd.list
+</span></span><span class="line"><span class="cl">sudo openssl passwd -apr1 <span class="p">|</span> tee -a /etc/nginx/conf.d/.webdav_passwd.list
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在所有需要同步的 Windows 设备上，均需要完成本节中的操作。</p>
+</div><p>使用以下命令测试配置文件是否有效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo nginx -t
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>完成测试且无报错，即可重启 Nginx 服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl restart nginx.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重启服务后在 Windows 设备上打开浏览器，进入 <code>webdav.server.lan</code> 便可看到 WebDAV 网页。</p>
 <hr>
-<h2 id="初始化-git-仓库">初始化 Git 仓库</h2>
-<p>在服务端的合适位置创建 Git 裸仓库。在这里我在 <code>git</code> 用户的目录下创建了 <code>git_repos</code> 目录用以存放仓库。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo mkdir /home/git/git_repos
-</span></span><span class="line"><span class="cl">sudo git init --bare /home/git/git_repos/obsidian_vault.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将 <code>/home/git/git_repos</code> 目录内的所有文件与目录之所有者移交给 <code>git</code> 用户。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chown -R git:git /home/git/git_repos
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在某一台需要同步的 Windows 设备上克隆该仓库到设备。在合适的位置启动终端，并使用以下命令进行克隆。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nv">@server</span><span class="p">.</span><span class="n">lan</span><span class="err">:</span><span class="p">/</span><span class="n">home</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">git_repos</span><span class="p">/</span><span class="n">obsidian_vault</span><span class="p">.</span><span class="py">git</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>此时，在对应目录中会出现 <code>obsidian_vault</code> 目录，进入该目录，创建 <code>.gitignore</code> 文件，告诉 Git 在提交时要忽略哪些文件和目录。<code>.gitignore</code> 文件中的内容可以按需更改，下面仅作为示例。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.obsidian/
-</span></span><span class="line"><span class="cl">#.obsidian/plugins
-</span></span><span class="line"><span class="cl">#.obsidian/workspace.json
-</span></span><span class="line"><span class="cl">#.obsidian/workspace-mobile.json
-</span></span><span class="line"><span class="cl">.trash/
-</span></span><span class="line"><span class="cl">.DS_Store
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>另外，为了避免 CRLF 与 LF 的问题，还需创建 <code>.gitattributes</code> 文件。同样，该文件的内容可以按需更改，下面仅作为示例。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* text=auto
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*.md text
-</span></span><span class="line"><span class="cl">*.txt text
-</span></span><span class="line"><span class="cl">*.js text
-</span></span><span class="line"><span class="cl">*.json text
-</span></span><span class="line"><span class="cl">*.html text
-</span></span><span class="line"><span class="cl">*.css text
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*.png binary
-</span></span><span class="line"><span class="cl">*.jpg binary
-</span></span><span class="line"><span class="cl">*.gif binary
-</span></span><span class="line"><span class="cl">*.bmp binary
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>至此，便可以将已有的 Obsidian 库中的所有内容复制到 <code>obsidian_vault</code> 目录，并在该目录下利用终端使用以下命令进行暂存、提交、推送。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
-</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">commit</span>
-</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>需要注意的是，在第一次推送完成后，需要在所有未克隆过远程仓库的 Windows 设备上进行一次克隆。</p>
-<hr>
-<h2 id="同步-obsidian-库">同步 Obsidian 库</h2>
-<p>启动 Obsidian 并打开 <code>obsidian_vault</code> 目录。在设置中的第三方插件下关闭安全模式，随后浏览社区插件市场，搜索并安装 Git 插件，并在安装的插件中启用它。此时，插件便已经可以读取到 Git 仓库的信息。打开命令面板，搜索 <code>Git: Open source control view</code> 并点击相应条目，便可在右侧的侧边栏中进行暂存、提交、推送、拉取等操作，以实现同步。插件的具体使用方法与配置详见 Git 插件的 GitHub 页面与文档，在此不多赘述。至此，已完成使用 Git 在不同设备间同步 Obsidian 库的基本配置。</p>
+<h2 id="zotero-同步配置">Zotero 同步配置</h2>
+<p>在 Windows 设备上打开 Zotero 软件，在菜单栏中点击“编辑”，在下拉菜单中点击“首选项”，随后在弹出的“Zotero 首选项”对话框中点击“同步”选项卡。如若尚未注册过 Zotero 账号，则需要注册一个。登录账号后，需要将同步方式从 Zotero 变更为 WebDAV，选择 HTTP 协议，输入域名、用户名、密码。</p>
+<p><img src="/post/9b8662dd/img/WebDAV_Zotero_1.png"
+	width="480"
+	height="553"
+	
+	loading="lazy"
+	
+		alt="“Zotero 首选项”中的“同步”选项卡"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="86"
+		data-flex-basis="208px"
+	
+></p>
+<p>点击“验证服务器”按钮，因为此时 WebDAV 存储文件的目录为空，第一次点击按钮会提示自动创建 <code>zotero</code> 目录，再次点击按钮便会提示设定成功。</p>
+<p><img src="/post/9b8662dd/img/WebDAV_Zotero_2.png"
+	width="300"
+	height="103"
+	
+	loading="lazy"
+	
+		alt="同步设定成功提示"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="291"
+		data-flex-basis="699px"
+	
+></p>
+<p>完成配置后点击“OK”按钮，并点击 Zotero 窗口右上角的绿色同步按钮进行同步。刷新浏览器中的 WebDAV 网页，可以看到新增了一个 <code>zotero</code> 目录，进入目录后若出现同步文件，则完成同步配置。</p>
 
 </section>
 
@@ -648,7 +528,7 @@
   <path d="M12 7v5l3 3" />
 </svg>
         <span>
-            最后更新于 Feb 04, 2024
+            最后更新于 Feb 18, 2024
         </span>
     </section></footer>
 
@@ -735,23 +615,23 @@
             
                 
 <article class="has-image">
-    <a href="/post/9b8662dd/">
+    <a href="/post/e532958c/">
         
         
             <div class="article-image">
-                <img src="/post/9b8662dd/img/cover.7f552861374f04cc470b9c50c47da406.png" 
-                        width="768" 
+                <img src="/post/e532958c/img/cover.85b791f41d5d9fb82df5c36ad771532e.png" 
+                        width="854" 
                         height="480" 
                         loading="lazy"
-                        alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献"
-                        data-key="9b8662dd" 
-                        data-hash="md5-f1UoYTdPBMxHC5xQxH2kBg==">
+                        alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库"
+                        data-key="e532958c" 
+                        data-hash="md5-hbeR9B1dn7gt9cNq13FTLg==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">利用 WebDAV 同步 Zotero 的文献</h2>
+            <h2 class="article-title">使用 Git 在不同设备间同步 Obsidian 库</h2>
         </div>
     </a>
 </article>
@@ -933,10 +813,8 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#起因">起因</a></li>
-    <li><a href="#服务端准备">服务端准备</a></li>
-    <li><a href="#密钥">密钥</a></li>
-    <li><a href="#初始化-git-仓库">初始化 Git 仓库</a></li>
-    <li><a href="#同步-obsidian-库">同步 Obsidian 库</a></li>
+    <li><a href="#搭建-webdav-服务器">搭建 WebDAV 服务器</a></li>
+    <li><a href="#zotero-同步配置">Zotero 同步配置</a></li>
   </ol>
 </nav>
         </div>
