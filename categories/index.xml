@@ -6,21 +6,21 @@
         <description>Recent content in 分类 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 18 Feb 2024 22:47:27 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 29 Feb 2024 22:12:40 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>生活随想</title>
+        <link>https://fissionneutron.com/categories/life/</link>
+        <pubDate>Thu, 29 Feb 2024 22:12:40 +0800</pubDate>
+        
+        <guid>https://fissionneutron.com/categories/life/</guid>
+        <description>&lt;img src="https://fissionneutron.com/categories/life/cover.jpg" alt="Featured image of post 生活随想" /&gt;</description>
+        </item>
+        <item>
         <title>折腾记录</title>
         <link>https://fissionneutron.com/categories/messing/</link>
         <pubDate>Sun, 18 Feb 2024 22:47:27 +0800</pubDate>
         
         <guid>https://fissionneutron.com/categories/messing/</guid>
         <description>&lt;img src="https://fissionneutron.com/categories/messing/cover.jpg" alt="Featured image of post 折腾记录" /&gt;</description>
-        </item>
-        <item>
-        <title>生活随想</title>
-        <link>https://fissionneutron.com/categories/life/</link>
-        <pubDate>Wed, 31 Jan 2024 18:50:31 +0800</pubDate>
-        
-        <guid>https://fissionneutron.com/categories/life/</guid>
-        <description>&lt;img src="https://fissionneutron.com/categories/life/cover.jpg" alt="Featured image of post 生活随想" /&gt;</description>
         </item>
         <item>
         <title>学习笔记</title>
