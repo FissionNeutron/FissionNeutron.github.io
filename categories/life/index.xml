@@ -6,7 +6,40 @@
         <description>Recent content in 生活随想 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 31 Mar 2024 21:39:58 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/categories/life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Apr 2024 17:04:43 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/categories/life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2024 年 4 月记 | 不太顺利</title>
+        <link>https://fissionneutron.com/post/d7e811b4/</link>
+        <pubDate>Tue, 30 Apr 2024 17:04:43 +0800</pubDate>
+        
+        <guid>https://fissionneutron.com/post/d7e811b4/</guid>
+        <description>&lt;img src="https://fissionneutron.com/post/d7e811b4/img/cover.png" alt="Featured image of post 2024 年 4 月记 | 不太顺利" /&gt;&lt;h2 id=&#34;学习忙&#34;&gt;学习忙&lt;/h2&gt;
+&lt;p&gt;好像最近两个月学习上一直都挺忙的，作业真的好多，一布置都是十几二十题的，大段大段冗长的证明，有些还要翻查文献，非常耗时间。月头上写完了一篇小论文，月底还简单应付了一下期中考，希望期中成绩能好点罢，这样期末压力能小点。&lt;/p&gt;
+&lt;p&gt;Rust 又抽空接着学了一点，把买的书又往下学了一点，书里的 CHIP-8 CPU 模拟器案例很有意思，很好地展示了计算机在底层是怎么工作的，也让我把之前学过的知识都串起来了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/d7e811b4/img/202404-learning.png&#34;
+	width=&#34;480&#34;
+	height=&#34;854&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;学习中……&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;134px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;老年手机&#34;&gt;老年手机&lt;/h2&gt;
+&lt;p&gt;前段时间家里的老人一直抱怨手机不太好了，想要换一个手机。我感到很奇怪，家里老人连微信都不用，过年的时候我也帮忙清理过手机，为啥说手机不好呢？仔细一问才知道，是手机店的人说手机太差了要让她新买一个手机。&lt;/p&gt;
+&lt;p&gt;说实话，这种事情也不是第一次发生了。疫情的时候为了方便老人出门看病，就给她从功能机换成了智能机。当时是在京东自营店买的小米手机，具体型号不太记得了，总之是低端机，受众就是老年人或者小朋友，毕竟老年人也不用手机打游戏，也不拍照什么的，买得再好也是浪费。手机到手之后我调试、装好软件之后，觉得没啥问题，就教老人使用了，也告诉老人有什么问题就来找家里人问，千万不要把手机给陌生人。没想到不出三个月，她手机流量直接用到爆表了，看到账单我和我妈都惊了，赶快让运营商停了她的流量，然后问老人到底发生了什么。老人说她也不知道发生了什么，她感觉手机有故障，送到街边的手机店想让店家帮忙看看，结果人店家给她刷机，装了各种奇奇怪怪的软件，流量爆表就是这些应用导致的。店家还说我给她买的手机是二手的，直接把我干无语了。&lt;/p&gt;
+&lt;p&gt;现在又能怎么办呢？只能再买一台新机给老人用了。不过现在的智能机适老化要比两三年前要好太多了，再加上家长控制可以防止莫名其妙的应用安装，至少我觉得可以让我省心不少了。有些厂商，比如荣耀，还专门为老年人写了使用手册，可以让没怎么接触过科技产品的老年人也能快速上手，真的很贴心。科技理应以人为本，适老化不仅仅是简单的字大和声音大，更要让交互更贴合老年人的使用逻辑，让老人用得舒心，家人也才能放心。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;有些不顺&#34;&gt;有些不顺&lt;/h2&gt;
+&lt;p&gt;最近一直找不到时间静下心来写月记，一整个四月居然找不到什么照片可以贴在月记里的。月末过得也有些挣扎。先是自行车的链子断了，随车带的修车包里也没有截链器，大晚上的也找不到地方修车，还弄得一手油，第二天只能步行去上早课。我蹲在地上检查链条企图修车的时候，有一对小情侣硬是挤在边上亲亲我我，让我感到十分不解与不适，但只能尊重罢。然后是在处理打翻在台面上的硫酸的时候又不小心把手烫伤了，幸好我的防护用具是穿戴到位的，没有受到化学灼伤。遇到这些事情真的好糟心，但不管怎么说，这些事再糟心也都已经过去了，要想点开心的事情才能让心理健康，比如马上到来的劳动节假期。希望在假期里能好好调整一下，也希望五月能顺顺利利的。祝大家平安，更祝愿世界和平。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>2024 年 3 月记 | 忙里偷闲</title>
         <link>https://fissionneutron.com/post/5bc33aed/</link>
         <pubDate>Sun, 31 Mar 2024 21:39:58 +0800</pubDate>
