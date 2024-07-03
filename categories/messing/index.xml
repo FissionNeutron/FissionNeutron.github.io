@@ -12,7 +12,7 @@
         <pubDate>Sun, 18 Feb 2024 22:47:27 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/9b8662dd/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/9b8662dd/img/cover.png" alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/9b8662dd/img/cover.jpg" alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服务器通过 WebDAV 的方法进行同步。&lt;/p&gt;
 &lt;p&gt;需要注意的是，WebDAV 这种同步方式不能对笔记、批注等数据进行同步。这些数据只能通过 Zotero 自己的同步服务进行同步。WebDAV 可以对文献的 PDF、网页等附件进行同步。&lt;/p&gt;
 &lt;hr&gt;
@@ -128,7 +128,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;zotero-同步配置&#34;&gt;Zotero 同步配置&lt;/h2&gt;
 &lt;p&gt;在 Windows 设备上打开 Zotero 软件，在菜单栏中点击“编辑”，在下拉菜单中点击“首选项”，随后在弹出的“Zotero 首选项”对话框中点击“同步”选项卡。如若尚未注册过 Zotero 账号，则需要注册一个。登录账号后，需要将同步方式从 Zotero 变更为 WebDAV，选择 HTTP 协议，输入域名、用户名、密码。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_1.jpg&#34;
 	width=&#34;480&#34;
 	height=&#34;553&#34;
 	
@@ -143,7 +143,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;点击“验证服务器”按钮，因为此时 WebDAV 存储文件的目录为空，第一次点击按钮会提示自动创建 &lt;code&gt;zotero&lt;/code&gt; 目录，再次点击按钮便会提示设定成功。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_2.jpg&#34;
 	width=&#34;300&#34;
 	height=&#34;103&#34;
 	
@@ -166,7 +166,7 @@
         <pubDate>Sun, 04 Feb 2024 20:27:16 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/e532958c/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/e532958c/img/cover.png" alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/e532958c/img/cover.jpg" alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;服务端准备&#34;&gt;服务端准备&lt;/h2&gt;

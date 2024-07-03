@@ -12,12 +12,12 @@
         <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
         
         <guid>https://fissionneutron.com/post/a54c5f4f/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/a54c5f4f/img/cover.png" alt="Featured image of post 四探针的基本原理" /&gt;&lt;p&gt;四探针测量技术，又称为开尔文测量法，是一种电阻抗测量技术，它使用单独的一对电流和电压探针，测量结果比更简单和更常见的两探针测量法更精确。四探针常被用于测量半导体薄膜的电阻率与方块电阻。&lt;/p&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/a54c5f4f/img/cover.jpg" alt="Featured image of post 四探针的基本原理" /&gt;&lt;p&gt;四探针测量技术，又称为开尔文测量法，是一种电阻抗测量技术，它使用单独的一对电流和电压探针，测量结果比更简单和更常见的两探针测量法更精确。四探针常被用于测量半导体薄膜的电阻率与方块电阻。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;基本方法&#34;&gt;基本方法&lt;/h2&gt;
 &lt;p&gt;如&lt;a class=&#34;link&#34; href=&#34;#fig1&#34; &gt;图 1&lt;/a&gt; 所示，四根等间距探针（1、2、3、4）竖直的排成一排，同时施加适当的压力使其与被测样品表面形成欧姆连接，用恒流源给两个外探针（1、4）通以小电流，精准电压表测量内侧两探针（2、3）间电压。根据测量方式和样品的尺寸不同，选取不同的公式计算样品的电阻、电阻率与方块电阻。&lt;/p&gt;
 &lt;span id= &#34;fig1&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/measure.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/measure.jpg&#34;
 	width=&#34;610&#34;
 	height=&#34;296&#34;
 	
@@ -40,7 +40,7 @@
 &lt;p&gt;$$ R = \frac{\rho L}{S} $$&lt;/p&gt;
 &lt;p&gt;式中，$L$ 为材料的长度，$S$ 为面积。四探针对半导体表面的接触均为点接触，所以对半无穷大样品，电流 $I$ 是以探针尖为圆心呈径向放射状流入体内的，因而电流在体内所形成的等位面为半球面，如&lt;a class=&#34;link&#34; href=&#34;#fig2&#34; &gt;图 2&lt;/a&gt; 所示。&lt;/p&gt;
 &lt;span id= &#34;fig2&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/half-inf.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/half-inf.jpg&#34;
 	width=&#34;728&#34;
 	height=&#34;261&#34;
 	
@@ -77,7 +77,7 @@
 &lt;h3 id=&#34;半无穷大薄膜样品&#34;&gt;半无穷大薄膜样品&lt;/h3&gt;
 &lt;p&gt;半无限大薄膜样品上探针电流的分布及等势面如&lt;a class=&#34;link&#34; href=&#34;#fig3&#34; &gt;图 3&lt;/a&gt; 所示。&lt;/p&gt;
 &lt;span id= &#34;fig3&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/thin.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/thin.jpg&#34;
 	width=&#34;728&#34;
 	height=&#34;217&#34;
 	
@@ -112,7 +112,7 @@ $$R_\Box = \frac{\rho}{t} \tag{1}$$
 &lt;/span&gt;
 &lt;p&gt;方块电阻几何变量定义如&lt;a class=&#34;link&#34; href=&#34;#fig4&#34; &gt;图 4&lt;/a&gt; 所示：&lt;/p&gt;
 &lt;span id= &#34;fig4&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/sheet.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/sheet.jpg&#34;
 	width=&#34;481&#34;
 	height=&#34;205&#34;
 	

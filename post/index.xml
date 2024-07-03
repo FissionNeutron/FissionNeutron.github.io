@@ -6,16 +6,52 @@
         <description>Recent content in 博文 on FissionNeutron的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Tue, 30 Apr 2024 17:04:43 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 30 Jun 2024 23:36:13 +0800</lastBuildDate><atom:link href="https://fissionneutron.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2024 年 5 月与 6 月记 | 一切如常</title>
+        <link>https://fissionneutron.com/post/f512ef1d/</link>
+        <pubDate>Sun, 30 Jun 2024 23:36:13 +0800</pubDate>
+        
+        <guid>https://fissionneutron.com/post/f512ef1d/</guid>
+        <description>&lt;img src="https://fissionneutron.com/post/f512ef1d/img/cover.jpg" alt="Featured image of post 2024 年 5 月与 6 月记 | 一切如常" /&gt;&lt;h2 id=&#34;疲于奔命&#34;&gt;疲于奔命&lt;/h2&gt;
+&lt;p&gt;好像我学期里的每一份月记的开头都在抱怨自己忙。最近两个月学校里的事情实在是太多了，完全没有时间停下来好好写一写月记。既然五月的月记来不及补上了，最近也没发生什么大事，我想不如就把五月和六月的月记并在一起写罢。&lt;/p&gt;
+&lt;p&gt;五一假期一过就直接上强度，除了常规的实验室工作，还有突然布置下来的巨量课程作业，以及极难应付的期末论文和小组汇报，实在是令人头疼。这两个月里写完了两篇期末报告，做了一次期末的小组汇报。有时候我宁愿这些课考试的，写论文真的很麻烦，又没啥意义，尤其是这种要查重的课程论文。再加上因为我觉得 AI 写的不如我自己写得好，不太爱用 AI 辅助写作，就真的挺折磨的。小组作业我也很是讨厌，弄到最后总是我一个人在做。虽然很痛苦，但还好都能应付，期末考试也考完了，不出意外的话下学期就没有要修读的课程了，可以专心扑在实验室上了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;重装系统&#34;&gt;重装系统&lt;/h2&gt;
+&lt;p&gt;四月末的时候我爸抱怨家里的台式机实在是太慢了，想让我帮忙处理一下。这台电脑虽然三年前我升级改造过，但因为之前偷懒遗留了一些问题一直没有解决，比如在再上一次升级时，也就是五年前加装的 SATA SSD；已经用了十年没有更换的机械硬盘；还有陈旧的 MBR 分区表。这次我把这些遗留问题一次性都解决了，购买了新的 M.2 SSD 和机械硬盘，在新盘进行系统的全新安装。&lt;/p&gt;
+&lt;p&gt;在备份的时候发现已经有部分数据存在问题了，比如有少数照片会出现奇怪的色块，看来机械硬盘更换得还是晚了一些。重装完之后我以为没问题了，结果就过了一周，我爸打电话和我说电脑莫名其妙自己卡死，然后自己重启了，他在写文件没保存，这一下重启全没了。我翻了一下系统日志，解析了故障缓存文件，发现是 Nvidia 显卡驱动丢失了 &lt;code&gt;nvlddmkm.sys&lt;/code&gt; 文件导致的，从驱动安装包里提取出该文件补上，就再没出现过这个问题。我感到很奇怪，系统全新安装之后，Windows 自己就把驱动装好了，我自己还手动更新过驱动，为什么会出现驱动缺少文件的问题？另外，我看到网上有许多类似的案例，但都有 BSOD 与停机码的提示，为什么我这台电脑却没有？实在是搞不太懂 Microsoft 和 Nvidia 之间到底是谁在抽风。总之，问题解决了就好。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新手柄&#34;&gt;新手柄&lt;/h2&gt;
+&lt;p&gt;五一假期的时候比较空，便打了《控制》的二周目，顺便把全成就给做了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/f512ef1d/img/202405-gaming.jpg&#34;
+	width=&#34;854&#34;
+	height=&#34;128&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;《控制》全成就达成&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;667&#34;
+		data-flex-basis=&#34;1601px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;打着打着就发现老手柄不太行了，开始有点漂移了，游戏中人物会不受控制地往前冲。这种情况基本上就是摇杆的电位器老化导致的。在观望了一周多之后，我还是选择新买了一个手柄。这次买的是北通的阿修罗 2 Pro +，就是封面图里这个。这款手柄用的是霍尔摇杆与霍尔扳机，应该使用寿命能长一些。至于老的手柄，我大概还是比较念旧的，可能还是会选择找个时间买个电位器，看看能不能换上接着用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一切安好&#34;&gt;一切安好&lt;/h2&gt;
+&lt;p&gt;五月和六月基本上就是这样，一切如常，一切安好。前两天刚考完了期末考试，接下来就是暑假了，不知道组里会不会让我回去干活，但我还是希望能给我放一个长假罢。就写到这里罢，希望七月也能一切安好。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>2024 年 4 月记 | 不太顺利</title>
         <link>https://fissionneutron.com/post/d7e811b4/</link>
         <pubDate>Tue, 30 Apr 2024 17:04:43 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/d7e811b4/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/d7e811b4/img/cover.png" alt="Featured image of post 2024 年 4 月记 | 不太顺利" /&gt;&lt;h2 id=&#34;学习忙&#34;&gt;学习忙&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/d7e811b4/img/cover.jpg" alt="Featured image of post 2024 年 4 月记 | 不太顺利" /&gt;&lt;h2 id=&#34;学习忙&#34;&gt;学习忙&lt;/h2&gt;
 &lt;p&gt;好像最近两个月学习上一直都挺忙的，作业真的好多，一布置都是十几二十题的，大段大段冗长的证明，有些还要翻查文献，非常耗时间。月头上写完了一篇小论文，月底还简单应付了一下期中考，希望期中成绩能好点罢，这样期末压力能小点。&lt;/p&gt;
 &lt;p&gt;Rust 又抽空接着学了一点，把买的书又往下学了一点，书里的 CHIP-8 CPU 模拟器案例很有意思，很好地展示了计算机在底层是怎么工作的，也让我把之前学过的知识都串起来了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/d7e811b4/img/202404-learning.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/d7e811b4/img/202404-learning.jpg&#34;
 	width=&#34;480&#34;
 	height=&#34;854&#34;
 	
@@ -45,7 +81,7 @@
         <pubDate>Sun, 31 Mar 2024 21:39:58 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/5bc33aed/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/5bc33aed/img/cover.png" alt="Featured image of post 2024 年 3 月记 | 忙里偷闲" /&gt;&lt;h2 id=&#34;大写的忙&#34;&gt;大写的忙&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/5bc33aed/img/cover.jpg" alt="Featured image of post 2024 年 3 月记 | 忙里偷闲" /&gt;&lt;h2 id=&#34;大写的忙&#34;&gt;大写的忙&lt;/h2&gt;
 &lt;p&gt;三月真的好忙，好累。上课，写作业，下实验室，等等等等，啥都要干。不过我做事不爱拖，除非是真的打心眼不想做。我觉得反正这些事情一样要做，不如早点做完。所以乘着这周的活干完了，下周的活还没布置下来的时候，算是我少数可以摸一摸鱼，忙里偷闲的时间。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;电台&#34;&gt;电台&lt;/h2&gt;
@@ -53,7 +89,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;学点-rust&#34;&gt;学点 Rust&lt;/h2&gt;
 &lt;p&gt;三月中旬的时候，我突发奇想，要不学点 Rust 怎么样？说干就干，飞速配置完环境进行学习。我跟的是名叫 Rustlings 的教程，一共有 96 个练习需要完成。这些练习都不需要从头开始写代码，只需要修改程序中的错误，或者补全代码功能，使其通过编译与测试就可以了。除了有些练习，一上来不知道要干什么，需要提示一下才知道意图，其他的翻翻官方文档，看看其他代码示例，很快就能完成所有练习。完成之后，还会在终端里弹出 Rust 吉祥物 Ferris 的像素画，挺有成就感的。之后我又买了本 Rust 相关的书籍，希望能继续学习巩固一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/5bc33aed/img/202403-rust.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/5bc33aed/img/202403-rust.jpg&#34;
 	width=&#34;734&#34;
 	height=&#34;480&#34;
 	
@@ -71,7 +107,7 @@
 &lt;h2 id=&#34;学做饭&#34;&gt;学做饭&lt;/h2&gt;
 &lt;p&gt;最近乘着休息的时候，我还在自己学着做点饭。说来惭愧，我从小到大几乎就没有下过厨，可能除了会煮米饭以外就只能两手一摊了。为了防止新手炸厨房，我决定还是先从最简单的煎蛋做起。摸索了一两周，自己学会了怎么煎培根、炒蛋、煮意面、煎牛排。
 虽然这意面属于是速食的那种，但能开火煮总是进步。总之，第一要务是把东西煮熟，然后再考虑好不好吃，怎么搭配罢。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/5bc33aed/img/202403-cooking.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/5bc33aed/img/202403-cooking.jpg&#34;
 	width=&#34;480&#34;
 	height=&#34;633&#34;
 	
@@ -96,10 +132,10 @@
         <pubDate>Thu, 29 Feb 2024 22:12:40 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/fe7d70f4/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/fe7d70f4/img/cover.png" alt="Featured image of post 2024 年 2 月记 | 过完春节，该收收心了" /&gt;&lt;h2 id=&#34;多玩一会&#34;&gt;多玩一会&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/fe7d70f4/img/cover.jpg" alt="Featured image of post 2024 年 2 月记 | 过完春节，该收收心了" /&gt;&lt;h2 id=&#34;多玩一会&#34;&gt;多玩一会&lt;/h2&gt;
 &lt;p&gt;二月一开头就给我一个大惊喜，我期待已久的《死亡搁浅 2》总算是有了新预告片。这新的预告片确实很有小岛的味道，看着放出了很多内容，实际全是谜语人。预告到底讲了什么，还得进游戏好好遨游一番才能知道。2025 年 PlayStation 平台发售，PC 平台应该迟不了多久，我真是太期待了。&lt;/p&gt;
 &lt;p&gt;从一月到二月，我一共花了快 160 小时，把《赛博朋克 2077》和它的 DLC 往日之影给通完了，达成了全成就。不得不说，往日之影 DLC 做的可能要比本体更有意思，任务和委托更有深度和内涵。DLC 主线的设计给有一种特工谍战片的味道，个人感觉比其本体的主线设计做得更好。我感觉 CDPR 属于是放开了，某种程度上也算是开发者的自我修养罢。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/fe7d70f4/img/202402-gaming.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/fe7d70f4/img/202402-gaming.jpg&#34;
 	width=&#34;854&#34;
 	height=&#34;128&#34;
 	
@@ -118,7 +154,7 @@
 &lt;p&gt;总算是过年了，一切都好起来了。我最担心会挂掉的课也过了，总算能睡个安稳觉了。大鱼大肉，大吃特吃。什么，要减肥？过完年再说罢，学期里自然会瘦下来的。&lt;/p&gt;
 &lt;p&gt;今年过年我算是我人生中第一次被亲戚催婚。有一位亲戚特别热情，还给我看某位姑娘的照片，要推给我相亲，最后算是给我婉拒了。整段对话搞得特别尴尬，我也是全程扶额。我倒也不是不想找对象，就是不喜欢把这种情感需求具体地暴露出来，再加上我对相亲这事有点抗拒，让我陷入了这种说不出话的感觉。哎，这种事情还是随缘罢。&lt;/p&gt;
 &lt;p&gt;其他的，除了简单出门拍了一点照片，似乎就没什么了。总觉得现在过年，年味是越来越淡了，挺遗憾的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/fe7d70f4/img/202402-travel.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/fe7d70f4/img/202402-travel.jpg&#34;
 	width=&#34;854&#34;
 	height=&#34;388&#34;
 	
@@ -144,7 +180,7 @@
         <pubDate>Sun, 18 Feb 2024 22:47:27 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/9b8662dd/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/9b8662dd/img/cover.png" alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/9b8662dd/img/cover.jpg" alt="Featured image of post 利用 WebDAV 同步 Zotero 的文献" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;我手头有两台 Windows 设备，需要在它们之间同步文献。我使用 Zotero 作为文献管理软件，但是它的免费云同步空间只有 300 MB，可能不太够用，便想利用自己的 Debian 服务器通过 WebDAV 的方法进行同步。&lt;/p&gt;
 &lt;p&gt;需要注意的是，WebDAV 这种同步方式不能对笔记、批注等数据进行同步。这些数据只能通过 Zotero 自己的同步服务进行同步。WebDAV 可以对文献的 PDF、网页等附件进行同步。&lt;/p&gt;
 &lt;hr&gt;
@@ -260,7 +296,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;zotero-同步配置&#34;&gt;Zotero 同步配置&lt;/h2&gt;
 &lt;p&gt;在 Windows 设备上打开 Zotero 软件，在菜单栏中点击“编辑”，在下拉菜单中点击“首选项”，随后在弹出的“Zotero 首选项”对话框中点击“同步”选项卡。如若尚未注册过 Zotero 账号，则需要注册一个。登录账号后，需要将同步方式从 Zotero 变更为 WebDAV，选择 HTTP 协议，输入域名、用户名、密码。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_1.jpg&#34;
 	width=&#34;480&#34;
 	height=&#34;553&#34;
 	
@@ -275,7 +311,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;点击“验证服务器”按钮，因为此时 WebDAV 存储文件的目录为空，第一次点击按钮会提示自动创建 &lt;code&gt;zotero&lt;/code&gt; 目录，再次点击按钮便会提示设定成功。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/9b8662dd/img/WebDAV_Zotero_2.jpg&#34;
 	width=&#34;300&#34;
 	height=&#34;103&#34;
 	
@@ -298,7 +334,7 @@
         <pubDate>Sun, 04 Feb 2024 20:27:16 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/e532958c/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/e532958c/img/cover.png" alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/e532958c/img/cover.jpg" alt="Featured image of post 使用 Git 在不同设备间同步 Obsidian 库" /&gt;&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;我手头有两台 Windows 设备，经常需要在它们之间同步 Obsidian 库。平时用 SMB 协议拷来拷去实在是不太方便，我便想利用自己的 Debian 服务器，通过 Git 实现多设备同步。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;服务端准备&#34;&gt;服务端准备&lt;/h2&gt;
@@ -572,7 +608,7 @@
         <pubDate>Wed, 31 Jan 2024 18:50:31 +0800</pubDate>
         
         <guid>https://fissionneutron.com/post/6cfcfdce/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/6cfcfdce/img/cover.png" alt="Featured image of post 2024 年 1 月记 | 新的一年，还是快乐一点罢" /&gt;&lt;h2 id=&#34;一些想法&#34;&gt;一些想法&lt;/h2&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/6cfcfdce/img/cover.jpg" alt="Featured image of post 2024 年 1 月记 | 新的一年，还是快乐一点罢" /&gt;&lt;h2 id=&#34;一些想法&#34;&gt;一些想法&lt;/h2&gt;
 &lt;p&gt;说实话，我这人不太爱写周记之类的东西。还记得上中学的时候，语文老师经常会布置周记作业。每每面对这种作业，我总会感到如临大敌，对着空白的作文本犯愁。我很好奇，中学生的周记能写出点什么？每天上着差不多的课，各种作业填满了不多的空余时间，周末不是写作业就是奔补习班，似乎每一周都没有什么差别。&lt;/p&gt;
 &lt;p&gt;时至今日，我读完了本科，读到了研究生，我依旧觉得写周记是一件挺痛苦的事情，每周都忙忙碌碌，但又不知道自己到底在忙些什么，觉得有些茫然。不过，又恰恰是这种茫然，催生了我写周期性记录的念头，希望通过写作的方式排解掉一些负面情绪，让自己快乐一点。日记和周记，我觉得还是太频繁了一些，我不想折磨我自己，所以我选择了月记这种形式。希望自己能一直写下去罢。&lt;/p&gt;
 &lt;hr&gt;
@@ -581,7 +617,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;游戏&#34;&gt;游戏&lt;/h2&gt;
 &lt;p&gt;乘着 Steam 冬季促销，又新买了几个游戏。经同学推荐买了《无敌号》，看风评不错买了《巴别塔圣歌》、《赛博朋克：2077》、《极乐迪斯科》。《无敌号》算是打通关了，画风我很喜欢，随着进度解锁漫画的设计很有创意，游戏的内核也很有深度，但是它的 FOV 和忽快忽慢的移动速度真的让我头好晕，这一点让我失去了做全成就的动力，希望后续能通过更新解决晕动的问题罢。《巴别塔圣歌》这游戏让我耳目一新，游戏设计非常独特，它讲述的故事并不复杂，但很动人。《赛博朋克：2077》和《极乐迪斯科》我都还没有打完，不太好评价。除了上面这些，我还顺手通关了《心灵杀手 2》的“终稿”模式，我真是越玩越爱这个游戏，现在就等它的 DLC 了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/6cfcfdce/img/202401-gaming.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/6cfcfdce/img/202401-gaming.jpg&#34;
 	width=&#34;854&#34;
 	height=&#34;128&#34;
 	
@@ -623,12 +659,12 @@
         <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
         
         <guid>https://fissionneutron.com/post/a54c5f4f/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/a54c5f4f/img/cover.png" alt="Featured image of post 四探针的基本原理" /&gt;&lt;p&gt;四探针测量技术，又称为开尔文测量法，是一种电阻抗测量技术，它使用单独的一对电流和电压探针，测量结果比更简单和更常见的两探针测量法更精确。四探针常被用于测量半导体薄膜的电阻率与方块电阻。&lt;/p&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/a54c5f4f/img/cover.jpg" alt="Featured image of post 四探针的基本原理" /&gt;&lt;p&gt;四探针测量技术，又称为开尔文测量法，是一种电阻抗测量技术，它使用单独的一对电流和电压探针，测量结果比更简单和更常见的两探针测量法更精确。四探针常被用于测量半导体薄膜的电阻率与方块电阻。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;基本方法&#34;&gt;基本方法&lt;/h2&gt;
 &lt;p&gt;如&lt;a class=&#34;link&#34; href=&#34;#fig1&#34; &gt;图 1&lt;/a&gt; 所示，四根等间距探针（1、2、3、4）竖直的排成一排，同时施加适当的压力使其与被测样品表面形成欧姆连接，用恒流源给两个外探针（1、4）通以小电流，精准电压表测量内侧两探针（2、3）间电压。根据测量方式和样品的尺寸不同，选取不同的公式计算样品的电阻、电阻率与方块电阻。&lt;/p&gt;
 &lt;span id= &#34;fig1&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/measure.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/measure.jpg&#34;
 	width=&#34;610&#34;
 	height=&#34;296&#34;
 	
@@ -651,7 +687,7 @@
 &lt;p&gt;$$ R = \frac{\rho L}{S} $$&lt;/p&gt;
 &lt;p&gt;式中，$L$ 为材料的长度，$S$ 为面积。四探针对半导体表面的接触均为点接触，所以对半无穷大样品，电流 $I$ 是以探针尖为圆心呈径向放射状流入体内的，因而电流在体内所形成的等位面为半球面，如&lt;a class=&#34;link&#34; href=&#34;#fig2&#34; &gt;图 2&lt;/a&gt; 所示。&lt;/p&gt;
 &lt;span id= &#34;fig2&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/half-inf.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/half-inf.jpg&#34;
 	width=&#34;728&#34;
 	height=&#34;261&#34;
 	
@@ -688,7 +724,7 @@
 &lt;h3 id=&#34;半无穷大薄膜样品&#34;&gt;半无穷大薄膜样品&lt;/h3&gt;
 &lt;p&gt;半无限大薄膜样品上探针电流的分布及等势面如&lt;a class=&#34;link&#34; href=&#34;#fig3&#34; &gt;图 3&lt;/a&gt; 所示。&lt;/p&gt;
 &lt;span id= &#34;fig3&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/thin.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/thin.jpg&#34;
 	width=&#34;728&#34;
 	height=&#34;217&#34;
 	
@@ -723,7 +759,7 @@ $$R_\Box = \frac{\rho}{t} \tag{1}$$
 &lt;/span&gt;
 &lt;p&gt;方块电阻几何变量定义如&lt;a class=&#34;link&#34; href=&#34;#fig4&#34; &gt;图 4&lt;/a&gt; 所示：&lt;/p&gt;
 &lt;span id= &#34;fig4&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/sheet.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/a54c5f4f/img/sheet.jpg&#34;
 	width=&#34;481&#34;
 	height=&#34;205&#34;
 	
@@ -771,7 +807,7 @@ $$R_\Box = \frac{\rho}{t} \tag{1}$$
         <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
         
         <guid>https://fissionneutron.com/post/cb856708/</guid>
-        <description>&lt;img src="https://fissionneutron.com/post/cb856708/img/cover.png" alt="Featured image of post 核磁共振的基本原理" /&gt;&lt;p&gt;核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发后的物质发现了核磁共振现象，并因此于 1944 年获得了诺贝尔物理学奖。时至今日，核磁共振已经成为了医学、化学、生物学等多个学科不可或缺的研究手段。&lt;/p&gt;
+        <description>&lt;img src="https://fissionneutron.com/post/cb856708/img/cover.jpg" alt="Featured image of post 核磁共振的基本原理" /&gt;&lt;p&gt;核磁共振，指的是磁矩不为零的原子核在恒定磁场中，由射频电磁场引起塞曼能级之间的共振跃迁现象。1939 年，伊西多·艾萨克·拉比通过试验高温蒸发后的物质发现了核磁共振现象，并因此于 1944 年获得了诺贝尔物理学奖。时至今日，核磁共振已经成为了医学、化学、生物学等多个学科不可或缺的研究手段。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;预备知识&#34;&gt;预备知识&lt;/h2&gt;
 &lt;p&gt;在学习核磁共振的基本原理之前，应首先了解本节内容。&lt;/p&gt;
@@ -806,7 +842,7 @@ $$\mu_z = \gamma S_z = \gamma m\hbar \tag{2}$$
 &lt;p&gt;$$\Delta E = \gamma \hbar B_{0}$$&lt;/p&gt;
 &lt;p&gt;由此可见，外加磁场越大，相邻能级之间的能量差也越大。&lt;/p&gt;
 &lt;!--&lt;span id= &#34;fig1&#34;&gt;--&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/split-e-level.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/split-e-level.jpg&#34;
 	width=&#34;454&#34;
 	height=&#34;320&#34;
 	
@@ -848,7 +884,7 @@ $$\mu_z = \gamma S_z = \gamma m\hbar \tag{2}$$
 &lt;h4 id=&#34;扫场法&#34;&gt;扫场法&lt;/h4&gt;
 &lt;p&gt;固定射频场 $\boldsymbol{B}_1$ 的频率，在共振磁场强度附近连续改变磁场 $\boldsymbol{B}_0$ 的场强（即连续改变相邻能级间的能量差），使扫磁场 $\boldsymbol{B}_0$ 过共振点。这种方法需要在平行于静磁场的方向上叠加一个较弱的交变磁场，该磁场被称为扫场。在连续改变磁场 $\boldsymbol{B}_0$ 的场强时，应缓慢地通过共振点。在这里，缓慢是相对于原子核的驰豫时间而言的。&lt;/p&gt;
 &lt;span id= &#34;fig2&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/field-scan.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/field-scan.jpg&#34;
 	width=&#34;596&#34;
 	height=&#34;379&#34;
 	
@@ -864,7 +900,7 @@ $$\mu_z = \gamma S_z = \gamma m\hbar \tag{2}$$
 &gt;&lt;/p&gt;
 &lt;/span&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;#fig2&#34; &gt;图 2&lt;/a&gt; 给出了扫场频率为 50 Hz 时，外磁场随时间的变化及相应的共振信号的关系。从图中可知道，磁场 $\boldsymbol{B}_0$ 的场强变化范围是 $B_0 = B \pm B^\prime $，相邻能级间的能量差也在相应地发生变化。改变射频频率 $\nu$，使 $\nu$ 对应的磁场强度 $B_1$ 在磁场 $\boldsymbol{B}_0$ 的场强变化范围内，就能发生共振。这时的共振信号的间隔可能是不等的，如果继续调整频率 $\nu$，使得共振信号等间距排列，此时扫场不参与共振，便可确定固定磁场 $\boldsymbol{B}_0$ 的场强。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/relaxation.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://fissionneutron.com/post/cb856708/img/relaxation.jpg&#34;
 	width=&#34;509&#34;
 	height=&#34;274&#34;
 	
